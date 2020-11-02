@@ -1,0 +1,108 @@
+	<!-- banner -->
+		<div id="banner">
+			<div class="container">
+				<div class="game_banner"> 
+			        <div class="game_slide">
+			        	<input type="radio" name="pos" id="pos1" checked>
+			        	<input type="radio" name="pos" id="pos2" >
+			        	<input type="radio" name="pos" id="pos3" >
+			        	<input type="radio" name="pos" id="pos4" >
+
+				        <ul>
+					        <li> <span class="ir_su"> 이미지1 </span> </li>
+					        <li> <span class="ir_su"> 이미지2 </span> </li>
+					        <li> <span class="ir_su"> 이미지3 </span> </li>
+					        <li> <span class="ir_su"> 이미지4 </span> </li>
+				        </ul>
+
+				        <p class="bullet">
+				        	<label for="pos1">  </label>
+				        	<label for="pos2">  </label>
+				        	<label for="pos3">  </label>
+				        	<label for="pos4">  </label>
+				        </p>			    
+		            </div>
+		        </div>
+		    </div>
+        </div>
+		<!-- //banner -->
+
+
+
+
+        /*  banner 레이아웃 부분 */
+
+.game_banner {
+    width: 1200px;
+    height: 610px;
+    padding-top: 10px;
+    margin-bottom: 200px;
+}
+
+.game_slide {
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid #666;
+
+}
+
+.game_slide li {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    opacity: 0;
+
+    transform: 1s;
+
+}
+
+
+.game_slide div:nth-child(1) { background: url(../imgs/ingame/ingame-image1.webp) no-repeat center top / 100% 100%;  animation-delay:0s }
+.game_slide div:nth-child(2) { background: url(../imgs/ingame/ingame-image2.webp) no-repeat center top / 100% 100%;  animation-delay:3s }
+.game_slide div:nth-child(3) { background: url(../imgs/ingame/ingame-image3.webp) no-repeat center top / 100% 100%;  animation-delay:6s }
+.game_slide div:nth-child(4) { background: url(../imgs/ingame/ingame-image4.webp) no-repeat center top / 100% 100%;  animation-delay:9s }
+
+.game_slide input { display: none; }
+
+.game_slide .bullet { 
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index:0;
+ }
+
+ .game_slide .bullet label {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    border: 2px solid #666;
+    display: inline-block;
+    background: #666;
+    font-size: 0;
+
+    
+    transition: 0.5s;
+    cursor: pointer;
+ 
+ }
+
+
+/* 슬라이드 조작 */
+#pos1:checked ~ ul li:nth-child(1) { opacity: 1; transition: 0.5s;  animation-delay:0s }
+#pos2:checked ~ ul li:nth-child(2) { opacity: 1; transition: 0.5s;  }
+#pos3:checked ~ ul li:nth-child(3) { opacity: 1; transition: 0.5s;  }
+#pos4:checked ~ ul li:nth-child(4) { opacity: 1; transition: 0.5s;  }
+
+/* bullet 조작 */
+#pos1:checked ~ .bullet label:nth-child(1),
+#pos2:checked ~ .bullet label:nth-child(2),
+#pos3:checked ~ .bullet label:nth-child(3),
+#pos4:checked ~ .bullet label:nth-child(4) { background: #fff; }
+
+        /* //banner 레이아웃 부분  */

@@ -1,0 +1,148 @@
+@charset "utf-8";
+
+/* 게시판 read */
+
+#board {
+    background-color: #000000; 
+    padding: 10px;
+    color: #a7937b;
+}
+
+#title_info {
+    text-align: center;
+}
+#board_road {
+    text-align: center;
+}
+        
+#board_read {
+	width:1400px;
+	position: relative;
+	word-break:break-all;
+    height: 900px;
+    background-color: #040404;
+    /*border: 1px solid #505050;*/
+    padding: 10px;
+    font-family: "Noto Serif KR", serif,"Cinzel Decorative", "Palatino Light", Times, "Times New Roman", Georgia, serif;\
+}
+
+#user_info {
+	font-size:14px;
+    text-align: right;
+}
+#user_info ul li {
+	float:left;
+	margin-left:10px;
+}
+#bo_line {
+	width:1400px;
+	height:2px;
+	background: #505050;
+	margin-top:20px;
+}
+#bo_content {
+    overflow: auto;
+    height: 650px;
+	margin-top:20px;
+}
+#bo_ser {
+	font-size:14px;
+	color:#333;
+	position: absolute;
+	right: 10px;
+    bottom: 10px;
+}
+
+#bo_ser a {
+    color: #a7937b;
+}
+
+#bo_ser a:hover {
+    color: #fff;
+}
+
+#bo_ser > ul > li {
+	float:left;
+	margin-left:10px;
+}
+
+
+
+
+
+
+
+/* 댓글 */
+
+.reply_wrap {
+    width: 1400px; 
+    padding: 10px;
+    background-color: #040404;
+    color: #a7937b;
+}
+.reply_view {
+	width:900px;
+	word-break:break-all;
+    text-align: left;
+    margin-left: 0;
+}
+.dap_lo {
+	font-size: 14px;
+	padding:10px 0 15px 0;
+	border-bottom: solid 1px gray;
+}
+.dap_to {
+	margin-top:5px;
+}
+.rep_me {
+	font-size:12px;
+}
+.rep_me ul li {
+	float:left;
+	width: 30px;
+}
+.dat_delete {
+	display: none;
+}	
+.dat_edit {
+	display:none;
+}
+.dap_sm {
+	position: absolute;
+	top: 10px;
+}
+.dap_edit_t{
+	width:520px;
+	height:70px;
+	position: absolute;
+	top: 40px;
+}
+.re_mo_bt {
+	position: absolute;
+	top:40px;
+	right: 5px;
+	width: 90px;
+	height: 72px;
+}
+#re_content {
+	width:700px;
+	height: 56px; 
+}
+.dap_ins {
+	margin-top:50px;
+}
+.re_bt {
+	position: absolute;
+	width:100px;
+	height:56px;
+	font-size:16px;
+	margin-left: 10px; 
+    color: #a7937b;
+    background-color: #040404;
+    cursor: pointer;
+}
+
+#dat_user, #dat_pw, .reply_content {
+    background-color: #040404;
+    color: #fff;
+}

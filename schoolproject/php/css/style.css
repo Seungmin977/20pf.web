@@ -1,0 +1,115 @@
+@charset "utf-8";
+
+#wrap { text-align: center;}
+
+/* 게시판 목록 */
+#board_area {
+	width: 1600px;
+	position: relative;
+    height: 800px;
+    /*background-color: #191919;*/
+    background-color: #040404;
+    color: #a7937b;
+    /*border: 1px solid #505050;*/
+    font-family: "Noto Serif KR", serif,"Cinzel Decorative", "Palatino Light", Times, "Times New Roman", Georgia, serif;
+    
+}
+.list-table {
+	margin-top: 50px;
+}
+.list-table thead th{
+	height:50px;
+	border-top:2px solid #e5c075;
+	border-bottom:1px solid #505050;
+	font-weight: bold;
+	font-size: 17px;
+}
+.list-table tbody td{
+	text-align:center;
+	padding:10px 0;
+	border-bottom:1px solid #505050; height:40px;
+	font-size: 15px;
+}
+
+.tr_hover a {
+    color: #a7937b;
+}
+
+.tr_hover a:hover {
+    color: #ecd19a;
+    font-weight: 700;
+}
+
+
+.write {
+    width: 60px;
+    height: 30px;
+    
+    background-color: #505050;
+    color: #fff;
+    font-family: "Noto Serif KR", serif,"Cinzel Decorative", "Palatino Light", Times, "Times New Roman", Georgia, serif;
+}
+
+
+
+#write_btn {
+	position: absolute;
+	right: 350px;
+    bottom: 260px;
+}
+
+#write_btn a:hover {
+    color: #fff;
+}
+
+#write_btn  a{
+    color: #a7937b;
+}
+
+#board {
+    background-color: #000000; 
+    padding: 10px;
+}
+
+
+#page_num {
+	font-size: 14px;
+    width: 220px;
+    height: 22px;
+    margin-left: 350px;
+    margin-top: 30px;
+}
+#page_num ul li {
+	float: left;
+	margin-left: 10px; 
+	text-align: center;
+}
+.fo_re {
+	font-weight: bold;
+	color:red;
+}
+
+.re_ct { 
+    margin-left: 10px;
+    color:#a7937b; 
+}
+
+
+.points {
+    position: relative;
+}
+.point a {
+    color: #a7937b;
+
+}
+
+.point a:hover {
+    color: #e5c075;
+}
+
+.point img {
+    margin-left: 40px;
+    margin-top: 2px;
+    position: absolute;
+
+}

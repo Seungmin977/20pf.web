@@ -1,0 +1,300 @@
+@charset "utf-8";
+        
+
+        /* 전체 레이아웃 부분  */
+body{
+    background-color: #000000;
+}
+#wrap { font-size: 30px; text-align: center; color:#fff; background-color: #000000; }
+#nav {  }
+#footer { height: 125px; border-top: 1px solid #8a4141; }
+
+        /* //전체 레이아웃 부분  */
+
+        /* 컨테이너 부분 */
+.container { width: 1200px; margin: 0 auto; height: inherit; }
+        /* height: inherit 는 위에꺼를 상속받는 거 즉 부모꺼 상속받음 , rgba 는 알지비 모드로 앞에 0 부터 R , G, B, 투명도 를 설정 */
+    
+        /* //컨테이너 부분 */
+
+
+
+        /* header, nav 레이아웃 부분 */
+
+.nav_wrap {
+    font-family: "Noto Serif KR", serif,"Cinzel Decorative", "Palatino Light", Times, "Times New Roman", Georgia, serif;
+    position: relative;
+}
+
+.nav_logo {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: url("../imgs/logo/nav_logo.webp") center top / 100% 100%;
+    width: 100px;
+    height: 100px;
+}
+
+.nav_menu {
+    padding-top: 10px;
+    background: rgba(112,24,24,17%);
+    position: fixed;
+    width: 100%;
+    z-index:1;
+    height: 80px;
+}
+
+.menu {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.menus {
+    position: relative;
+}
+
+.nav_menu div {
+    text-align: center;
+    float: left; 
+    margin-left: 75px;
+    margin-top: 5px;
+}
+
+.nav_menu div:nth-child(4) {
+    margin-top: -15px;
+}
+
+.nav_menu a {
+    color: rgba(196, 174, 120);
+    text-decoration: none;
+}
+
+.nav_menu ul li {
+    text-align: center;
+}
+
+.name_intro > li > a:hover {
+    border-bottom: 2px solid #94052d;
+    padding-bottom: 5px;
+}
+
+.name_intro {
+    font-size: 20px;
+    /*background: rgba(112,24,24,17%);*/
+    width: 100px;
+}
+
+.sub_menu {
+    font-size: 18px;
+    margin-top: 30px;
+    padding: 1px;
+    display: none;
+    background: rgba(112,25,25,20%);
+}
+
+.sub_menu li {
+
+    margin-bottom: 25px;
+
+}
+
+.name_intro:hover .sub_menu {
+    display: block;
+}
+
+.sub_menu a:hover {
+    color: #94052d;
+}
+
+
+.nav_wrap img { width: 100%; }
+
+        /* // header, nav 레이아웃 부분 */
+
+
+        /* //content 레이아웃 부분*/
+
+.content_wrap {
+
+    background-color: rgb(28 26 29 / 70%);
+    box-shadow: 0px 0px 40px 10px rgb(45 44 44 / 81%);
+    margin: 10px 0 20px;
+}
+
+.content_wrap h2 {
+    color: #ecd19a;
+    font-family: "Cinzel Decorative", "Palatino Light", Times, "Times New Roman", Georgia, serif;
+    text-shadow: 6px 6px 6px #000000;
+    font-weight: 300;
+}
+
+.content_wrap em {
+    text-align: left;
+    color: #a7937b;;
+    font-size: 20px;
+    margin : 15px;
+    display: block;
+    font-weight: bold;
+    font-family: "Noto Serif KR", serif,"Cinzel Decorative", "Palatino Light", Times, "Times New Roman", Georgia, serif;
+}
+
+
+.game_int_span {
+    font-family: "Noto Serif KR", serif,"Cinzel Decorative", "Palatino Light", Times, "Times New Roman", Georgia, serif;
+}
+
+.content_wrap span {
+    font-size: 17px;
+    color: #a7937b;
+}
+
+
+.game_download {
+    padding-top: 10px;
+}
+
+.game_download .game_download_content {
+    margin-top: 70px;
+    margin-bottom :100px;
+}
+
+.game_download .game_download_content .download_int {
+    font-size: 30px;
+    /*font-family: 'Lobster', cursive ;*/
+    margin-bottom: 60px;
+    border-bottom: 1px solid #333;
+}
+
+.game_download_content .game_int {
+    font-size: 14px;
+    width: 800px;
+    height: 50px;
+    border: 1px solid #333;
+    padding-top: 30px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    font-family: "Noto Serif KR", serif,"Cinzel Decorative", "Palatino Light", Times, "Times New Roman", Georgia, serif;
+}
+
+.button {
+    margin: 0 auto;
+    width: 400px;
+}
+
+.button > a {
+    text-decoration: none;
+}
+
+.btn {
+    display: block;
+    width: 400px;
+    height: 60px;
+    margin: 0 auto;
+    
+    line-height: 50px;
+    border: 1px #444444 solid;
+    border-radius: 7px;
+    margin: 15px auto;
+    background-color: #333333;
+    
+    text-align: center;
+    cursor: pointer;
+    
+    color: #a7937b;
+    font-size: 25px ;
+    transition: all 0.9s;
+    font-family: "Noto Serif KR", serif,"Cinzel Decorative", "Palatino Light", Times, "Times New Roman", Georgia, serif;
+}
+
+.btn > a:hover { color: #fff; }
+
+.btn:hover { color: #fff;}
+
+
+.hover1:hover {
+    box-shadow: 400px 0 0 0 rgba(0,0,0,0.25) inset,
+        -400px 0 0 0 rgba(0,0,0,0.25) inset;
+
+}
+
+/* box-shadow 간단설명
+box-shadow : 200px 0 0 0 rgba(0,0,0,0.5) inset;
+200px 0 : 앞쪽의 2개의 숫자는 윗쪽에서 200px, 왼쪽에서 0만큼 띄우라는 뜻
+0 (3번째 숫자) : 번짐의 정도 임
+0 (4번째 숫자) : 펼처짐의 넓이 임
+rgba(0,0,0,0.5) : 색상값과 투명도 임
+inset : 원그림의 외부가 아니라 내부에서만 표현하라는 뜻*/
+
+
+/* 사양 설명 부분  */
+
+.CanRunit { margin: 0 auto; display: inline-block; overflow: hidden; 
+    margin-top: 100px; }
+.CanRunit span {
+    display: block;
+    margin: 10px;
+}
+.CanRunit_Low { width: 550px; float: left; }
+.CanRunit_high { width: 550px; float: left; }
+
+
+
+        /* //content 레이아웃 부분 */
+
+
+
+        /* footer 레이아웃 부분 */
+
+.footer_nav {
+    font-size:18px;
+    height: 100px;
+    position: relative;
+}
+
+.footer_logo {
+    width: 180px;
+    height: 150px;
+    background: url(../imgs/logo/logo_transparent.webp) no-repeat top center / 100% 100%;
+   /* margin-left: 100px;*/
+
+   position: absolute;
+   margin-top: 0px;
+   left: 60px;
+}
+
+.footer_address {
+    color:#ecd19a;
+    position: absolute;
+    top: 70%;
+    margin-top: -10px;
+    right: 50px;
+}
+        /* //footer 부분 */
+
+@media (max-width: 1200px){
+   #content .container { width: 100%;}
+   #footer .container {width: 100%; }
+}
+
+@media (max-width: 1116px){
+    .content_wrap .CanRunit_Low { float: none; margin-bottom: 30px;}
+    .content_wrap .CanRunit_high { float: none;}
+}
+
+@media (max-width: 820px){
+    .game_download_content .game_int { width: 80%; }
+}
+
+@media (max-width: 670px){
+    .footer_logo { display: none; }
+    .footer_address { position: static; margin-top: 10px; }
+    #footer { height: 20px;}
+    .footer_nav { height: 20px;}
+}
+
+@media (max-width: 636px){
+    .nav_menu .menu div:nth-child(3) {
+        display: none;
+    }
+}

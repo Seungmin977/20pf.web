@@ -1,0 +1,115 @@
+@charset "utf-8";
+
+
+/* 게시판 글쓰기 */
+
+#wrap { text-align: center; }
+
+#board {
+    background-color: #000000; 
+    padding: 10px;
+    margin: 20px;
+}
+
+#board a {
+    color: #a7937b;
+}
+
+#board a:hover {
+    color: #fff;
+}
+
+#board_write {
+	width:1400px;
+	position:relative;
+	margin:0 auto;
+    background-color: #040404;
+    color: #a7937b;
+    font-family: "Noto Serif KR", serif,"Cinzel Decorative", "Palatino Light", Times, "Times New Roman", Georgia, serif;
+}
+#write_area {
+	margin-top:70px;
+	font-size:14px;
+}
+
+#in_name {
+	margin-top:30px;
+}
+#in_name textarea {
+	font-weight:bold;
+	font-size:26px;
+	color:#fff;
+	width: 1300px;
+	border:none;
+	resize: none;
+    background-color: #040404;
+}
+#in_title {
+	margin-top:30px;
+}
+#in_title textarea {
+	font-weight:bold;
+	font-size:26px;
+	color:#fff;
+	width: 1300px;
+	border:none;
+	resize: none;
+    background-color: #040404;
+}
+.wi_line {
+    width: 1300px;
+	border:solid 1px #a7937b;
+	margin-top:10px;
+}
+#in_content {
+	margin-top:10px;
+}
+#in_content textarea {
+	font:18px;
+	color:#fff;
+	width: 1300px;
+	height: 400px;
+	resize: none;
+    background-color: #040404;
+}
+#in_pw input {
+	font:14px;
+	margin-top:10px;
+    color: #fff;
+    background-color: #040404;
+}
+.bt_se {
+	margin-top:20px;
+	text-align:center;
+}
+.bt_se button {
+	width:100px;
+	height:30px;
+    margin-bottom: 15px;
+    
+    border: 1px #444444 solid;
+    border-radius: 2px;
+    background-color: #333333;
+    
+    text-align: center;
+    cursor: pointer;
+    
+    color: #a7937b;
+    font-size: 20px ;
+    transition: all 0.9s;
+    
+    font-family: "Noto Serif KR", serif,"Cinzel Decorative", "Palatino Light", Times, "Times New Roman", Georgia, serif;
+}
+
+.bt_se button:hover {
+    color: #fff;
+}
+
+/* 잠그는거 */
+#in_lock {
+    margin-top: 15px;
+}
+
+#in_lock > input {
+    margin-right: 10px;
+}
