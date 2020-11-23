@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+/* 레이아웃 */
+#wrap {}
+#header { width: 100%; }
+#nav { position: sticky; top: 0; }
+#footer { background-color: darkslategray; }
+
+/* 중간 영역 */
+.container { margin: 0 auto; width: 1200px; }
+
+
+/* header 영역*/
+.header { height: 850px; }
+
+.header .header_bg {
+  background-image: url(../images/bg.jpg);
+  background-size: 2200px auto;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.header .header_bg .header_title {
+  padding-top: 200px;
+  text-align: center;
+  cursor: default;
+  animation: upstrong 3s ease;
+}
+
+.header .header_bg .header_title strong {
+  font-size: 100px;
+  display: block;
+  margin-bottom: 100px;
+  text-transform: uppercase;
+}
+
+.header .header_bg .header_title p {
+  font-size: 30px;
+}
+
+/* 크로스 브라우징을 위해 -webkit-*/
+@-webkit-keyframes upstrong{
+  0% { transform: translate(0, 20px); opacity: 0; }
+  100% { transform: translate(0, 0px);  opacity: 1; }
+}
+
+
+/* nav 영역 */
+.nav {
+  background: #222;
+  font-size: 14px;
+  text-align: center;
+}
+.nav ul {
+  display: inline-block;
+}
+.nav ul li {
+  color: #222;
+  float: left;
+  margin: 0px 80px;
+}
+.nav a {
+  display: block;
+  height: 80px;
+  line-height: 80px;
+}
+.nav a:hover {
+  color: red;
+}
+
+
+/* section, content 영역 */
+#content { background: #7657; }
+.site1 { padding: 10px; }
+.site1 .image1 { overflow: hidden; position: relative; width: 1200px; height: 400px; background: #222; }
+.site1 .intro { position: absolute; top: 130px; left: -1000px; color: #fff; transition: all 0.5s ease; }
+.site1 .intro > h2 { padding-bottom: 10px; }
+.site1 .intro > p { padding-bottom: 25px; }
+.site1 .intro > a { display: block; width: 100px; background: #333; text-align: center; }
+.site1 .intro > a span { }
+
+.site1 .image1:hover .intro { left: 320px; }
+.site1 .image1:hover { background: rgba(0, 0, 0, 0.4); }
+
+
+.site2 {}
+.site3 {}
+
+
+
+/* footer 영역 */
+.footer { text-align: center; cursor: default; }
+.footer h2 { margin-bottom: 20px; font-size: 30px; }
+.footer .address { }
+.footer .address ul { display: block; }
+.footer .address li { display: inline-block; }
+.footer .address ul li a { display: block; color: #222; padding: 20px; }
+
+
+
+
+
+
+/* 미디어 쿼리 */
+
+@media ( max-width: 1200px ){
+  .container { width: 100%; }
+}
+@media screen and (max-width:768px){
+
+  
+}
