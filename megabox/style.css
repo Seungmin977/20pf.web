@@ -1,0 +1,193 @@
+
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: 'Source Sans Pro', sans-serif; }
+
+ul a { text-decoration: none;  }
+
+a { color: #fff; text-decoration: none; }
+
+li { list-style: none; }
+
+
+#nav_bar { background: #333; display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; }
+
+#nav_bar .nav_logo { font-size: 24px; padding: 8px 12px; }
+#nav_bar .nav_logo i { color: salmon; }
+#nav_bar .nav_logo a { }
+
+#nav_bar .nav_menu { display: flex;  justify-content: space-between; padding-left: 0;}
+#nav_bar .nav_menu li { padding: 8px 12px; }
+#nav_bar .nav_menu li:hover { background: #d49466; cursor: pointer; }
+
+#nav_bar .nav_icons { display: flex; }
+#nav_bar .nav_icons i { color: #fff; }
+#nav_bar .nav_icons li { padding: 8px 12px; }
+
+.nav_toggleBtn { display: none; position: absolute; top: 16px; right: 36px; font-size: 24px; color: #d49466; }
+
+
+.loder { 
+    border: 6px solid #222;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border-top: 6px solid chocolate; 
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.loder2 {
+    width: 500px;
+    height: 20px;
+    background-color: darkblue;
+    position: relative;
+    animation: pan 2s linear infinite;
+}
+
+.loder2:after {
+    content: '';
+    width: 100px;
+    height: 20px;
+    background: #333;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+@keyframes pan {
+    0% { transform: rotateX(0deg); }
+    100% { transform: rotateX(360deg); }
+}
+
+.loder3 {
+    margin: 20px 20px;
+    width: 100px;
+    height: 100px;
+    background-color: #222;
+    animation: pannel 5s linear infinite;
+}
+
+.loder3 h1 { color: #fff; perspective: 400px; }
+
+@keyframes pannel {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+
+.loder4 {
+    width: 100px;
+    height: 100px;
+    background: darkgray;
+    margin: 20px 20px;
+    perspective: 200px;
+}
+
+.loder4:hover { transform: rotateX(50deg); }
+
+.loder5 {
+    width: 100px;
+    height: 100px;
+    background-color: #c6c6c6;
+    margin: 20px 20px;
+    position: relative;
+}
+
+.loder5 .loder5_1 {
+    width: 50px;
+    height: 50px;
+    background-color: #d49466;
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 3s ease;
+}
+
+.loder5_1:hover {
+    transform: translateX(-50px);
+}
+
+
+#slider_wrap { width: 400px; height: 400px; overflow: hidden; position: relative; }
+#slider { height: 100%; position: absolute; top: 0; left: 0; }
+#slider li { float: left; position: relative; width: 400px; height: 400px; }
+#slider li div { width: 400px; height: 400px; background-color: beige;}
+
+
+/* 
+@media screen and (max-width: 768px ){
+    #nav_bar { display: block; }
+    #nav_bar .nav_menu { display: block; text-align: center; }
+    #nav_bar .nav_icons { justify-content: center; }
+}
+*/
+
+@media screen and (max-width: 768px ){
+    #nav_bar { padding: 8px 24px ; flex-direction: column; align-items: flex-start; }
+    #nav_bar .nav_menu { 
+        display: none;
+        width: 100%; 
+        flex-direction: column; 
+        align-items: center; 
+    }
+    #nav_bar .nav_menu li { 
+        width: 100%; 
+        text-align: center;
+
+    }
+
+    #nav_bar .nav_icons {  
+        display: none;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav_toggleBtn { display: block; }
+
+    /* 메뉴랑 아이콘이 엑티브 되면 */
+    #nav_bar .nav_menu.active,
+    #nav_bar .nav_icons.active {
+        display: flex;
+    }
+}
+
+
+
+
+#header { width: 100%; background: rgba(0, 0,0,0.1); }
+
+.container { width: 1280px; margin: 0 auto; }
+
+.row { padding: 0 28px; }
+
+.header { position: relative; }
+.header h1 { float: left; }
+.header em img { width: 155px; padding: 11px 8px 5px 0; }
+.header strong img { width: 125px; position: absolute; top: 18px; }
+
+.header .nav { float: right; }
+.header ul { display: inline-block; text-align: center; border-left: 1px solid #c6c6c6; }
+.header li { float: left; width: 103px; border-right: 1px solid #c6c6c6; }
+.header li a { padding: 17px 10px; font-size: 15px; display:block; }
+
+
+.modal_open {}
+.modal_open > button { width: 80px; height: 50px; }
+
+.modal { display: none; position: relative; z-index: 1; color: #fff; overflow: auto; }
+.modal .modal_cont { overflow-y: scroll; width: 300px; height: 100vh; margin: 0 auto; background: #444; padding: 20px; border: 2px solid red;}
+.modal .modal_cont h1 {}
+.modal .modal_cont p { padding: 20px; margin-top: 1000px; }
+.modal .modal_cont > button { width: 80px; height: 50px; }
+.modal .modal_layer { position: fixed; top: 0; left: 0; background: rgba(0,0,0,0.5); z-index: -1; width: 100%; height: 100%; }
+
+html, body { height: 100%; overflow: auto; }
