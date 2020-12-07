@@ -52,6 +52,7 @@
   background: #222;
   font-size: 14px;
   text-align: center;
+  position: relative;
 }
 .nav ul {
   display: inline-block;
@@ -59,17 +60,31 @@
 .nav ul li {
   color: #222;
   float: left;
-  margin: 0px 80px;
-}
-.nav a {
-  display: block;
-  height: 80px;
-  line-height: 80px;
-}
-.nav a:hover {
-  color: red;
+  margin-right: 40px;
 }
 
+.nav ul li.on a {
+  color:rgba(190, 148, 106, 0.467);
+}
+
+.nav a {
+  display: block;
+  padding: 20px;
+  transition: all 1s;
+}
+
+ /* 맨위로 가기  */
+#gotop { position: absolute; top: 10px; right: 20px; opacity: 0; transition: opacity 1s; }
+#gotop > a { padding: 0;}
+#gotop a > .svg_tree {  background: url(/images/tree.svg) no-repeat; width: 40px; height: 40px; background-size: cover; background-color: #fff; border-radius: 50%;}
+
+#gotop.on { opacity: 1; animation: animation 1s 1s linear infinite alternate; }
+
+@keyframes animation {
+    0% { transform: translateY(0px);}
+    50% { transform: translateY(10px);}
+    100% {transform: translateY(-10px);}
+}
 
 /* section, content 영역 */
 #content { background: #7657; }
@@ -101,18 +116,22 @@
 
 /* footer 영역 */
 .footer { text-align: center; cursor: default; padding: 15px;}
-.footer h2 { margin-bottom: 20px; font-size: 30px; }
-.footer .address { }
-.footer .address ul { display: block; }
-.footer .address li { display: inline-block; }
-.footer .address ul li i { font-size: 80px; }
-.footer .address ul li span { display: block; }
-.footer .address ul li a { display: block; color: #222; padding: 5px; }
+.footer .address .github i { font-size: 80px; }
+.footer .address .github span { display: block; }
+.footer .address .github a { display: inline-block; color: #222; padding: 5px; transform-style: preserve-3d; }
+.footer .address span { font-size: 18px; }
 
+ /* 깃허브 애니메이션 */
+.footer .address .github a:hover {
+  color: rgba(190, 148, 106, 0.467);
+  font-weight: 900;
+  animation:github 2s linear infinite both;
+}
 
-
-
-
+@keyframes github {
+  0% {transform: rotateY(0deg); }
+  100% {transform: rotateY(360deg); }
+}
 
 /* 미디어 쿼리 */
 
@@ -120,6 +139,10 @@
   .container { width: 100%; }
 }
 
+
+@media (max-width:600px) {
+  .header .header_bg .header_title strong { font-size: 4rem;}
+}
 @media screen and (max-width:768px){
 
   
