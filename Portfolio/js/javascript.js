@@ -24,7 +24,23 @@ window.addEventListener("scroll", function () {
     } else {
         document.querySelector("#gotop").classList.remove("on");
     }
+
+
+    for (var i = 1; i < 5; i++) {
+        if (pageYOffset + winheight / 2 > document.querySelector(".effect" + i).offsetTop) {
+            document.querySelector(".effect" + i).classList.add("show");
+        }
+    };
+
 });
+
+for (let e = 1; e < 5; e++) {
+
+    document.querySelector(".image" + e).addEventListener("click", function () {
+        document.querySelector(".image" + e + "> .intro").classList.toggle("on");
+    });
+
+}
 
 
 // jQuery nav 클릭 애니메이션 
