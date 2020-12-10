@@ -25,7 +25,7 @@ window.addEventListener("scroll", function () {
         document.querySelector("#gotop").classList.remove("on");
     }
 
-
+    // effect 이미지 보여주기
     for (var i = 1; i < 5; i++) {
         if (pageYOffset + winheight / 2 > document.querySelector(".effect" + i).offsetTop) {
             document.querySelector(".effect" + i).classList.add("show");
@@ -34,6 +34,7 @@ window.addEventListener("scroll", function () {
 
 });
 
+// 이미지 누르면 각각 intro 보여주기
 for (let e = 1; e < 5; e++) {
 
     document.querySelector(".image" + e).addEventListener("click", function () {
