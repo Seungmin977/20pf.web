@@ -25,23 +25,58 @@ window.addEventListener("scroll", function () {
         document.querySelector("#gotop").classList.remove("on");
     }
 
-    // effect 이미지 보여주기
+
     for (var i = 1; i < 5; i++) {
-        if (pageYOffset + winheight / 2 > document.querySelector(".effect" + i).offsetTop) {
-            document.querySelector(".effect" + i).classList.add("show");
+        if (pageYOffset + winheight / 2 > document.querySelector(`.effect${i}`).offsetTop) {
+            document.querySelector(`.effect${i}`).classList.add("show");
         }
     };
 
 });
 
-// 이미지 누르면 각각 intro 보여주기
+// 인트로 토글
 for (let e = 1; e < 5; e++) {
-
-    document.querySelector(".image" + e).addEventListener("click", function () {
-        document.querySelector(".image" + e + "> .intro").classList.toggle("on");
+    document.querySelector(`.image${e}`).addEventListener("click", function () {
+        document.querySelector(`.image${e} > .intro`).classList.toggle("on");
     });
-
 }
+
+//햄버거 메뉴
+let ham = document.querySelector(".mNav .mNav_ham");
+let nav_bar = document.querySelector(".nav ul");
+
+ham.addEventListener("click", function () {
+    ham.classList.toggle("open");
+    nav_bar.classList.toggle("open");
+});
+
+window.addEventListener("resize", function () {
+    let winWidth = window.innerWidth;
+
+    if (winWidth > 768) {
+        nav_bar.classList.remove("open");
+    }
+});
+
+
+// 탭 메뉴
+let tabList = document.querySelectorAll(".tab_list");
+
+Array.prototype.forEach.call(tabList, function (list) {
+    list.children[0].addEventListener("click", function (e) {
+        e.preventDefault();
+
+        let tabContent = document.querySelectorAll(".tab_cont");
+        let Nums = this.parentElement.getAttribute("data-nums");
+
+        Array.prototype.forEach.call(tabContent, function (cont, i) {
+            cont.classList.remove("active"); // active 없애기
+            tabList[i].classList.remove("tab_active");
+        });
+        tabContent[Nums].classList.add("active"); // 같으면 active 추가 
+        list.classList.add("tab_active");
+    });
+});
 
 
 // jQuery nav 클릭 애니메이션 
@@ -50,6 +85,7 @@ for (let e = 1; e < 5; e++) {
     let nav = $(".nav ul li");
     let introtop = $("#header").offset().top;
     let cont = $("#content").offset().top;
+    let skill = $("#skill").offset().top;
     let gotop = $("#gotop");
 
     // nav 메뉴 클릭 시 이동 효과 
@@ -66,6 +102,8 @@ for (let e = 1; e < 5; e++) {
             $("html, body").animate({ scrollTop: introtop }, 600);
         } else if (index == 1) {
             $("html, body").animate({ scrollTop: cont }, 600);
+        } else if (index == 2) {
+            $("html, body").animate({ scrollTop: skill }, 600);
         }
     });
 
