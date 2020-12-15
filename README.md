@@ -3,8 +3,9 @@
   <head>
   </head>
   <body>
-안녕하세요<br>
-
+    
+안녕하세요
+<br>
 웹 퍼블리셔가 되기 위해 공부중인 최승민 입니다.
 
 현재는 html, css, jQuery, Javascript를 공부하고 있습니다.
