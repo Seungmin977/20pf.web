@@ -25,7 +25,7 @@ https://seungmin977.github.io/20pf.web/schoolproject<br>
 
 감사합니다.
 
--mail-
+-mail-<br>
 nostrer@naver.com
 
 </body>
