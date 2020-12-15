@@ -15,7 +15,7 @@
 
 아래는 작업물들입니다.
 
-<a href="https://seungmin977.github.io/web/Portfolio/">포트폴리오 사이트</a>
+<a href="https://seungmin977.github.io/20pf.web/Portfolio/">포트폴리오 사이트</a>
 
 공부중 작업한 리스트 입니다.<br>
 https://seungmin977.github.io/20pf.web/webstandard/<br>
