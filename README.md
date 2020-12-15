@@ -16,11 +16,11 @@
 
 <a href="https://seungmin977.github.io/web/Portfolio/">포트폴리오 사이트</a>
 
-공부중 작업한 리스트 입니다.
-https://seungmin977.github.io/20pf.web/webstandard/
-https://seungmin977.github.io/20pf.web/RESPONSIVE
-https://seungmin977.github.io/20pf.web/megabox
-https://seungmin977.github.io/20pf.web/schoolproject
+공부중 작업한 리스트 입니다.<br>
+https://seungmin977.github.io/20pf.web/webstandard/<br>
+https://seungmin977.github.io/20pf.web/RESPONSIVE<br>
+https://seungmin977.github.io/20pf.web/megabox<br>
+https://seungmin977.github.io/20pf.web/schoolproject<br>
 
 감사합니다.
 
