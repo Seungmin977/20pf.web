@@ -291,7 +291,7 @@
 .site .intro.on > a {
   display: inline-block;
 }
-.site .image1, .image2, .image3, .image4, .image5 {
+.site .image1, .image2, .image3, .image4, .image5, .image6 {
   overflow: hidden; position: relative; height: 500px; transition: all 1s ease; border: 2px solid #333; cursor: pointer;
 }
 
@@ -327,12 +327,14 @@
 .effect3 { opacity: 0; transform: translateX(-200px); transition: all 1s; }
 .effect4 { opacity: 0; transform: translateX(200px); transition: all 1s; }
 .effect5 { opacity: 0; transform: rotateY(120deg); transition: all 2s; }
+.effect6 { opacity: 0; transform: rotateX(120deg); transition: all 2s; }
 
 .effect1.show { opacity: 1; transform: translateX(0px); }
 .effect2.show { opacity: 1; transform: translateX(0px); }
 .effect3.show { opacity: 1; transform: translateX(0px); }
 .effect4.show { opacity: 1; transform: translateX(0px); }
 .effect5.show { opacity: 1; transform: rotateY(0deg); }
+.effect6.show { opacity: 1; transform: rotateX(0deg); }
 
 /* footer 영역 */
 .footer { text-align: center; cursor: default; padding: 15px; color: #e6e6e6; }

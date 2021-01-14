@@ -44,7 +44,7 @@ function init() {
         }
 
         // 포트폴리오 효과
-        for (var i = 1; i < 6; i++) {
+        for (var i = 1; i < 7; i++) {
             if (pageYOffset + winHeight / 2 > document.querySelector(".effect" + i).offsetTop) {
                 document.querySelector(".effect" + i).classList.add("show");
             }
@@ -100,7 +100,7 @@ function init() {
     });
 
     // 인트로 토글
-    for (let e = 1; e < 6; e++) {
+    for (let e = 1; e < 7; e++) {
         let images = document.querySelector(".image" + e);
         images.addEventListener("click", function () {
             images.querySelector(".intro").classList.toggle("on");
