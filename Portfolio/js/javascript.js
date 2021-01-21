@@ -7,7 +7,6 @@ function init() {
         let pageYOffset = window.pageYOffset;
         let navOffset = document.querySelector("#nav").offsetTop;
         let pofolOffset = document.querySelector("#content").offsetTop;
-        let skillOffset = document.querySelector("#skill").offsetTop;
         let winHeight = window.outerHeight;
 
         console.log(pageYOffset);
@@ -37,10 +36,10 @@ function init() {
         // navBar fixed
         if (navOffset < pageYOffset) {
             document.querySelector(".nav").className = "nav fixed";
-            document.querySelector(".About > h2").className = "fixed_p";
+            document.querySelector("#About > h2").className = "fixed_p";
         } else {
             document.querySelector(".nav").className = "nav";
-            document.querySelector(".About > h2").className = "";
+            document.querySelector("#About > h2").className = "";
         }
 
         // 포트폴리오 효과

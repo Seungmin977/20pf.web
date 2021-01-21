@@ -18,29 +18,34 @@
         <a href="#content">포트폴리오 바로가기</a>
     </div>
     <!-- skip -->
+
     <div id="wrap">
         <header id="header">
             <div class="header">
                 <div class="header_bg">
                     <div class="header_title">
-                        <strong> Web Portfolio </strong>
-                        <p> Choi seung min Portfolio </p>
+                        <h1>
+                            Choi seung min Web
+                            <span>Portfolio</span>
+                        </h1>
                     </div>
-                    <!-- header_title -->
+                    <!-- //header_title -->
                     <div class="header_icon">
                         <span class="goorm"></span>
                         <span class="brid"></span>
                     </div>
-                    <!-- header_icon -->
+                    <!-- //header_icon -->
                 </div>
+                <!-- //header_bg -->
             </div>
         </header>
         <!-- //header -->
 
         <nav id="nav">
             <div class="nav">
+                <h2 class="ir_su">전체 메뉴</h2>
                 <div class="mNav">
-                    <h2 class="ir_so">전체 메뉴</h2>
+                    <h2 class="ir_su">모바일 전체 메뉴</h2>
                     <div class="mNav_ham">
                         <span></span>
                         <span></span>
@@ -53,9 +58,8 @@
                     <li><a href="#content">Portfolio</a></li>
                 </ul>
                 <div id="gotop">
-                    <a href="#" title="맨 위로 이동">
-                        <div class="tree"><img src="images/treegreen.png" alt="맨 위로 가기 이미지"><span
-                                class="ir_so">GoTop</span></div>
+                    <a href="#wrap">
+                        <div class="tree"><img src="images/treegreen.png" alt="위로 가기" title="위로 가기"></div>
                     </a>
                 </div>
             </div>
@@ -63,41 +67,32 @@
         <!-- //nav -->
 
         <section id="About">
+            <h2>About</h2>
             <div class="container">
-                <article class="About">
-                    <h2>About</h2>
-                    <div class="About_me clearfix">
-                        <div class="About_image">
-                            <img src="images/myimage.png" alt="사진">
-                        </div>
-                        <p>
-                            안녕하세요.<br>
-                            웹 퍼블리셔가 되기 위해 공부 중인 최승민입니다.<br>
-                            하고 싶은 일은 무엇인지에 대해 고민하던 중
-                            고등학생 때 배웠던 웹 관련 수업이 생각나게 되었고 웹 관련 직업을 해보고 싶다고 생각하게 되었습니다.
-                            힘들고 어려운 점도 많았지만 하고 싶은 것이었기에 큰 매력을 느끼며 공부하고 있습니다.<br>
-                            현재는 html, css, Javascript를 공부하고 있습니다.
-                        </p>
+                <div class="About_me clearfix">
+                    <div class="About_image">
+                        <img src="images/myimage.png" alt="사진">
                     </div>
-                </article>
-                <!-- About -->
-            </div>
-        </section>
-        <!-- //About -->
-
-        <!-- section , skil -->
-        <section id="skill">
-            <div class="container">
-                <article class="skill">
-                    <h2>my skill</h2>
-                    <div class="tab_menu">
+                    <p>
+                        안녕하세요.<br>
+                        웹 퍼블리셔가 되기 위해 공부 중인 최승민입니다.<br>
+                        하고 싶은 일은 무엇인지에 대해 고민하던 중
+                        고등학생 때 배웠던 웹 관련 수업이 생각나게 되었고 웹 관련 직업을 해보고 싶다고 생각하게 되었습니다.
+                        힘들고 어려운 점도 많았지만 하고 싶은 것이었기에 큰 매력을 느끼며 공부하고 있습니다.<br>
+                        현재는 html, css, Javascript를 공부하고 있습니다.
+                    </p>
+                </div>
+                <!-- //About_me-->
+                <article id="skill">
+                    <h2 class="ir_su">my skill</h2>
+                    <div class="skill_tab">
                         <ul class="clearfix">
                             <li class="tab_list tab_active" data-nums="0"><a href="#">Language</a></li>
                             <li class="tab_list" data-nums="1"><a href="#">이력</a></li>
                         </ul>
                     </div>
-                    <!-- tab_menu -->
-                    <div class="tab_content">
+                    <!-- //skill_tab -->
+                    <div class="skill_content">
                         <div class="tab_cont active">
                             <div class="icon_content">
                                 <span class="icons ir_pm">HTML</span>
@@ -112,20 +107,20 @@
                             </div>
                         </div>
                         <div class="tab_cont">
-                            <h2>이력</h2>
+                            <h3>이력</h3>
                         </div>
                     </div>
-                    <!-- tab content -->
-
+                    <!-- //skill_content -->
                 </article>
+                <!-- //section , skil -->
             </div>
         </section>
-        <!-- //section , skil -->
+        <!-- //About -->
 
         <section id="content">
             <div class="container">
                 <h2>PORTFOLIO</h2>
-                <article class="effect1 site borders">
+                <article class="site effect1 borders">
                     <h3>표준형 웹 사이트</h3>
                     <div class="image1">
                         <a href="#none"><img src="images/webstandard.png" alt="표준형 웹"></a>
@@ -140,7 +135,7 @@
                     </div>
                 </article>
                 <!-- //site 1  -->
-                <article class="effect2 site borders">
+                <article class="site effect2 borders">
                     <h3>반응형 웹 사이트</h3>
                     <div class="image2">
                         <a href="#none"><img src="images/webRESPONSIVE.png" alt="반응형 웹"></a>
@@ -157,7 +152,7 @@
                     </div>
                 </article>
                 <!-- //site 2  -->
-                <article class="effect3 site borders">
+                <article class="site effect3 borders">
                     <h3>메가박스 사이트</h3>
                     <div class="image3">
                         <a href="#none"><img src="images/megabox.png" alt="메가박스 사이트"></a>
@@ -176,7 +171,7 @@
                     </div>
                 </article>
                 <!-- //site 3  -->
-                <article class="effect4 site borders">
+                <article class="site effect4 borders">
                     <h3>사이트01</h3>
                     <div class="image4">
                         <a href="#none"><img src="images/schoolproject.png" alt="사이트01"></a>
@@ -197,7 +192,7 @@
                     </div>
                 </article>
                 <!-- //site 4  -->
-                <article class="effect5 site borders">
+                <article class="site effect5 borders">
                     <h3>사이트02 간단한 스타벅스 사이트</h3>
                     <div class="image5">
                         <a href="#none"><img src="images/starbucks.png" alt="사이트02"></a>
@@ -215,7 +210,7 @@
                 </article>
                 <!-- //site 5  -->
 
-                <article class="effect6 site borders">
+                <article class="site effect6 borders">
                     <h3>우리은행 시니어 플러스</h3>
                     <div class="image6">
                         <a href="#none"><img src="images/wooribank.png" alt="우리은행 시니어플러스"></a>
@@ -243,8 +238,7 @@
                 <h2> Contact </h2>
                 <div class="address">
                     <div class="github">
-                        <a href="https://github.com/Seungmin977/web"><i class="fa fa-github"
-                                aria-hidden="true"></i><span>Github</span></a>
+                        <a href="https://github.com/Seungmin977/web"><i class="fa fa-github"></i><span>Github</span></a>
                     </div>
                     <span>nostrer@naver.com</span>
                 </div>
@@ -255,9 +249,8 @@
     </div>
     <!-- //wrap -->
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script type="text/javascript"
-        src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/javascript.js"></script>
 </body>
 
