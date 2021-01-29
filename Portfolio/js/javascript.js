@@ -74,29 +74,45 @@ function init() {
         }
     });
 
-    // 탭 메뉴
-    Array.prototype.forEach.call(tabList, function (list) {
-        list.children[0].addEventListener("click", function (e) {
+
+    //탭 메뉴 2021 - 01 - 29 
+    tabList.forEach(function (list) {
+        list.childNodes[0].addEventListener("click", function (e) {
             e.preventDefault();
 
-            let tabContent = document.querySelectorAll(".tab_cont");
-            let Nums = this.parentElement.getAttribute("data-nums");
+            let conts = document.querySelectorAll(".tab_list .tab_cont");
+            let nums = this.parentElement.getAttribute("data-nums");
 
-            Array.prototype.forEach.call(tabContent, function (cont, i) {
-                // cont.classList.remove("active"); // active 없애기
-                // tabList[i].classList.remove("tab_active");
-                cont.style.display = "none"; // tabContent 전부 none
-                tabList[i].className = "tab_list"; // tabContent 전부 tab_list로 초기화
+            conts.forEach(function (cont) {
+                cont.className = "tab_cont";
             });
-            // tabContent[Nums].classList.add("active"); // 같으면 active 추가 
-            // list.classList.add("tab_active");
-            tabContent[Nums].style.display = "block";
-
-            if (list.className.indexOf("tab_active") == -1) {
-                list.className = "tab_list tab_active";
-            }
+            conts[nums].className = "tab_cont active";
         });
     });
+
+    // 탭 메뉴
+    // Array.prototype.forEach.call(tabList, function (list) {
+    //     list.children[0].addEventListener("click", function (e) {
+    //         e.preventDefault();
+
+    //         let tabContent = document.querySelectorAll(".tab_cont");
+    //         let Nums = this.parentElement.getAttribute("data-nums");
+
+    //         Array.prototype.forEach.call(tabContent, function (cont, i) {
+    //             // cont.classList.remove("active"); // active 없애기
+    //             // tabList[i].classList.remove("tab_active");
+    //             cont.style.display = "none"; // tabContent 전부 none
+    //             tabList[i].className = "tab_list"; // tabContent 전부 tab_list로 초기화
+    //         });
+    //         // tabContent[Nums].classList.add("active"); // 같으면 active 추가 
+    //         // list.classList.add("tab_active");
+    //         tabContent[Nums].style.display = "block";
+
+    //         if (list.className.indexOf("tab_active") == -1) {
+    //             list.className = "tab_list tab_active";
+    //         }
+    //     });
+    // });
 
     // 인트로 토글
     for (let e = 1; e < 7; e++) {

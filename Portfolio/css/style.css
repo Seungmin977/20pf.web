@@ -6,13 +6,12 @@
 #nav { background-color: #d0e8f2; }
 #About { 
   padding: 10% 2%;
-  /*background-color: #c6ebc9;*/ 
   background: linear-gradient(180deg, #BEDCFA 0%, #98ACF8 100%);
   background: -webkit-linear-gradient(-90deg, #BEDCFA 0%, #98ACF8 100%);
 }
 #skill { padding: 2%; }
-#content { padding: 10% 0; background: #98ACF8; /*background: -webkit-linear-gradient(-90deg, #B088F9 0%, #da9ff9 100%);*/ }
-#footer { /*background-color: #da9ff9;*/ 
+#content { padding: 10% 0; background: #98ACF8; }
+#footer { 
   background: linear-gradient(180deg, #98ACF8 0%, #B088F9 100%);
   background: -webkit-linear-gradient(-90deg, #98ACF8 0%, #B088F9 100%); 
 }
@@ -23,7 +22,7 @@
 
 
 /* 중간 영역 */
-.container { margin: 0 auto; width: 1200px; overflow: hidden;}
+.container { margin: 0 auto; width: 1200px; /*overflow: hidden; 2021 01 29*/ }
 
 /* skip */
 #skip { position: relative; }
@@ -241,43 +240,48 @@
 
 /* skil 영역 */
 .skill_tab, .skill_content { padding: 0 2%; box-sizing: border-box; }
+.skill_tab { height: 435px; }
 .skill_tab ul { position: relative; }
-.skill_tab ul li { float:left; width: 25%; background-color: rgba(116, 185, 255, 0.5); box-sizing: border-box; margin-right: -1px; }
-.skill_tab ul li a { display: block; width: 100%; padding: 20px; box-sizing: border-box; text-align: center; color: #000; border: 1px solid rgba(108, 92, 231,1.0); }
+.skill_tab ul .tab_list { float:left; width: 25%; background-color: rgba(116, 185, 255, 0.5); box-sizing: border-box; margin-right: -1px; }
+.skill_tab ul .tab_list a { display: block; position: relative; z-index: 1; width: 100%; padding: 20px; box-sizing: border-box; text-align: center; color: #000; border: 1px solid rgba(108, 92, 231,1.0); }
 
-.skill_tab ul li:hover { transform: scale(1.01); }
-.skill_content { position: relative; }
-.skill_content .tab_cont { display: none; width: 100%; height: 100%; background-color: #d0e8f2; padding: 2%; box-sizing: border-box; }
-.skill_content .tab_cont.active { display: block; }
+.skill_tab ul .tab_list:hover a { transform: scale(1.01); }
+
+/* 2021 01 29 */
+.skill_tab ul .tab_list .tab_cont { display: none; position: absolute; top: 65px; left: 0; width: 100%; height: auto; background-color: #d0e8f2; padding: 2%; box-sizing: border-box; z-index: 0; }
+.skill_tab ul .tab_list .tab_cont.active { display: block; }
 
 .skill_tab ul .tab_list.tab_active {
   background-color: rgba(116, 185, 255, 1);
 }
 
 /* 각 아이콘들 스프라이트 기법  */
-.skill_content .tab_cont .icon_content {  text-align: center; }
-.skill_content .tab_cont span { margin-right: 2%; display: inline-block; width: 110px; height: 165px; }
+.skill_tab ul li .tab_cont .icon_content { text-align: center; }
+.skill_tab ul li .tab_cont span { margin-right: 2%; display: inline-block; /* width: 110px; */ width: 7.5rem; height: 11rem; }
 
-/* 이미지 스프라이트 */
-.skill_content .tab_cont span:nth-child(1) {
-  background-position: 0px 0px;
+/* 2021 01 29 */
+.skill_tab ul li .tab_cont span:nth-child(1) {
+  background-position: 0% -2%;
 }
-.skill_content .tab_cont span:nth-child(2) {
-  background-position: -155px 0px;
+.skill_tab ul li .tab_cont span:nth-child(2) {
+  /* background-position: -155px 0px; */
+  background-position: 39.5% -2%;
 }
-.skill_content .tab_cont span:nth-child(3) {
-  background-position: -309px 0px;
+.skill_tab ul li .tab_cont span:nth-child(3) {
+  /* background-position: -309px 0px; */
+  background-position: -50.5% -2%;
 }
-.skill_content .tab_cont span:nth-child(4) {
-  width: 105px;
-  height: 103px;
-  background-position: 0px 330px;
+.skill_tab ul li .tab_cont span:nth-child(4) {
+  width: 7rem;
+  height: 7rem;
+  background-position: 0px 44%;
 }
 
-.skill_content .info { text-align: center; }
-.skill_content .info p { display: block; margin: 20px; }
-.skill_content .info strong { position: relative; margin: 0 15px; color: #456268; }
-.skill_content .info strong:before { content: ''; position: absolute; top: 5px; right: -7px; width: 2px; height: 16px; background-color: #999; }
+/* 2021 01 29 */
+.skill_tab ul li .tab_cont .info { text-align: center; }
+.skill_tab ul li .tab_cont .info p { display: block; margin: 20px; }
+.skill_tab ul li .tab_cont .info strong { position: relative; margin: 0 15px; color: #456268; }
+.skill_tab ul li .tab_cont .info strong:before { content: ''; position: absolute; top: 5px; right: -7px; width: 2px; height: 16px; background-color: #999; }
 
 
 /* PORTFOLIO */
@@ -415,6 +419,7 @@
 /*  600px */
 @media (max-width:600px) {
 
+  #wrap { font-size: 12px; }
   /* intro 부분 배경 및 글씨 크기 수정 */
   .header { height: auto;}
   .header .header_bg .header_title {
@@ -432,6 +437,30 @@
     max-height: 270px;
   }
 
+    /* 2021 01 29 */
+  .icons { background-size: 400%; }
+  .skill_tab ul li .tab_cont span {
+    width: 4rem;
+    height: 4rem;
+  }
+  .skill_tab ul li .tab_cont span:nth-child(1) {
+    background-position: -2% 11%;
+  }
+  .skill_tab ul li .tab_cont span:nth-child(2) {
+    /* background-position: -155px 0px; */
+    background-position: 41.5% 11%;
+  }
+  .skill_tab ul li .tab_cont span:nth-child(3) {
+    /* background-position: -309px 0px; */
+    background-position: -50.5% 11%;
+  }
+  .skill_tab ul li .tab_cont span:nth-child(4) {
+    width: 4rem;
+    height: 3.5rem;
+    background-position: 0px 43%;
+  }
+
+  
 }
 
 /*  480px */
@@ -458,7 +487,10 @@
   .About_me p:before { top: -40px; right: -20px; width: 120px; background-size: 120px; }
   
   /* skill */
-  .skill .tab_menu ul li { width: 30%; }
-  .skill .tab_menu ul li a { font-size: 0.9rem; }
+  /* .skill .tab_menu ul li { width: 30%; }
+  .skill .tab_menu ul li a { font-size: 0.9rem; } */
+  .skill_tab ul .tab_list a {
+    text-indent: -5px;
+  }
 
 }
