@@ -4,13 +4,31 @@ function init() {
     // 윈도우 스크롤 시 작동 
     window.addEventListener("scroll", function () {
 
-        let pageYOffset = window.pageYOffset;
+        let pageYOffset = window.pageYOffset; //윈도우 크기
         let navOffset = document.querySelector("#nav").offsetTop;
         let pofolOffset = document.querySelector("#content").offsetTop;
-        let winHeight = window.outerHeight;
+        let winHeight = window.outerHeight; //문서 크기
+
+        //2021 01 31
+        let winTop = window.pageYOffset / 7;// 헤더 배경용 윈도우 크기 2021 01 31
+        let bird1 = document.querySelector(".brid1");
+        let bird2 = document.querySelector(".brid2");
+
+        document.querySelector(".header_bg").style.backgroundPositionX = - winTop + "px"; //헤더 배경 fixed
+
+        // 새 조정
+        if (pageYOffset >= 550) {
+            bird1.style.top = pageYOffset + 80 + "px";
+            bird1.style.left = pageYOffset - 460 + "px";
+        }
+        if (pageYOffset >= 1100) {
+            bird2.style.top = pageYOffset + 100 + "px";
+            bird2.style.right = pageYOffset - 950 + "px";
+        }
+
+        //2021 01 31
 
         console.log(pageYOffset);
-
         // navBar색상 조정 on off 
         if (pageYOffset + winHeight / 2 < navOffset) {
             document.querySelector(".nav ul li").classList.add("on");

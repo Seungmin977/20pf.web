@@ -41,7 +41,8 @@
 }
 
 /* header 영역*/
-.header { height: 100vh; position: relative; overflow: hidden; }
+.header { 
+  height: 2200px; position: relative; overflow: hidden; }
 
 .header .header_bg {
   background-image: url(../images/bg.jpg);
@@ -82,9 +83,11 @@
   100% { -ms-transform: translate(0, 0px);  opacity: 1; }
 }
 
-.header .header_bg .header_icon { }
 .header .header_bg .header_icon .goorm { position: absolute; top: 0; display: block; width: 250px; height: 250px; background: url(../images/goorm.png); background-size: cover; animation: goorm 30s linear infinite alternate; }
-.header .header_bg .header_icon .brid { position: absolute; bottom: 10%; display: block; width: 100px; height: 100px; background: url(../images/bird.png); background-size: cover; animation: brid 10s linear infinite alternate; }
+.header .header_bg .header_icon .brid1,
+.header .header_bg .header_icon .brid2 { position: absolute; display: block; width: 100px; height: 100px; background: url(../images/bird.png); background-size: cover; animation: brid 2s linear; }
+.header .header_bg .header_icon .brid1 { top: 600px; left: 10%; transform: rotateY(180deg); }
+.header .header_bg .header_icon .brid2 { top: 1200px; right: 10%; }
 
 @keyframes goorm {
   0% { left: -300px; transform: translate(0); }
@@ -96,12 +99,8 @@
 }
 
 @keyframes brid {
-  0% { right: 50%; transform: translateY(-50%); }
-  20% { transform: translate(-20px, 20px); }
-  40% { transform: translate(-20px, -20px); }
-  60% { transform: translate(-20px, 20px); }
-  80% { transform: translate(20px, 20px); }
-  100% { right: 50%; transform: translateY(-50%); }
+  0% { left: -100px; }
+  100% { left: 120px; }
 }
 
 /* nav 영역 */
