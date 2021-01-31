@@ -22,7 +22,7 @@
 
 
 /* 중간 영역 */
-.container { margin: 0 auto; width: 1200px; /*overflow: hidden; 2021 01 29*/ }
+.container { margin: 0 auto; width: 1200px; overflow: hidden; }
 
 /* skip */
 #skip { position: relative; }
@@ -236,7 +236,7 @@
 .About_me .About_image { float: left; width: 300px; height: 300px; border: 2px solid #222; border-radius: 50%; overflow: hidden; box-sizing: border-box; }
 .About_me .About_image img { width: 100%; height: 100%; }
 .About_me > p { position: relative; width: 50%; text-align: left; float: right; margin-top: 50px; font-size: 1rem; padding: 1rem; box-shadow: 0px 0px 20px 0px rgba(162, 155, 254,1.0); background-color: rgba(116, 185, 255,0.5); box-sizing: border-box; }
-.About_me > p:before { content: ''; position: absolute; top: -50px; right: -25px; width: 165px; height: 85px; background: url(../images/구름1.png) no-repeat; background-size: cover; }
+.About_me > p:before { content: ''; position: absolute; top: -50px; right: -10px; width: 130px; height: 65px; background: url(../images/구름1.png) no-repeat; background-size: cover; }
 
 /* skil 영역 */
 .skill_tab, .skill_content { padding: 0 2%; box-sizing: border-box; }
@@ -289,16 +289,49 @@
 .site { padding: 2%; box-sizing: border-box; }
 .site > h3 { font-size: 1.3rem; color: #fff; text-shadow: 1px 1px 5px #000; padding: 1rem 2rem; border-radius: 5px; transform-style: preserve-3d; transform: translate3d(-1rem, 1rem, 1rem); perspective: 100px; background: -webkit-linear-gradient(0deg, #7F7FD5 0%, #86A8E7 50%, #91EAE4 100%); }
 .site img { width: 100%; display: block; transition: all 1s;}
-.site .intro { position: absolute; top: 50%; left: 50%; width: 80%; height: 60%; transform: translate(-50%,-50%); transition: all 1s; background-color: #167c80; color: #fff; text-align: center; padding: 20px 10px; opacity: 0; }
-.site .intro > h4 { padding-bottom: 6%; font-size: 1.5rem; }
-.site .intro > p { padding-bottom: 12%; font-size: 0.9375rem;}
-.site .intro > a { display: none; width: 100px; background: #fef4a9; color: #189ba3; text-align: center; padding: 2%; font-size: 1rem; font-weight: bold; } 
+.site .intro { position: absolute; top: 50%; left: 50%; width: 80%; height: 60%; transform: translate(-50%,-50%); transition: all 1s; color: #000; background-color: #98ACF8; border: 2px solid #222; border-radius: 20px; text-align: center; padding: 20px 10px; opacity: 0; }
+.site .intro > h4 { padding-bottom: 6%; font-size: 1.5rem; text-decoration: underline; }
+.site .intro > p { width: 85%; margin: 0 auto; font-size: 0.9375rem; }
+/* 2021 01 31 */
+.site .intro > a,
+.site.effect4 .intro div a { display: none; position: relative; width: 100px; color: #fff; text-align: center; padding: 2%; border: 1px solid #fff; border-radius: 5px; font-size: 1rem; font-weight: bold; } 
 
-.site .intro > a:hover { transform: scale(1.1); }
+/* 2021 01 31 */
+.site.effect4 .intro div > a{
+  margin-bottom: 12px;
+}
 
-.site .intro.on > a {
+.site .intro.on > a,
+.site.effect4 .intro div a {
   display: inline-block;
 }
+
+.site .intro a:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #B088F9;
+  transition: width 0.5s;
+  opacity: 60%;
+  border-radius: 5px;
+}
+
+.site .intro.on > a:hover:before,
+.site.effect4 .intro div a:hover:before {
+  width: 100%;
+}
+
+.site .intro.on > a,
+.site.effect4 .intro div {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+}
+
 .site .image1, .image2, .image3, .image4, .image5, .image6 {
   overflow: hidden; position: relative; height: 500px; transition: all 1s ease; border: 2px solid #333; cursor: pointer;
 }
@@ -306,21 +339,6 @@
  /* 이미지 호버 효과 */
 .site:hover img {
   transform: scale(1.1);
-}
-
-.borders:before {
-  content: '';
-  width: 0;
-  height: 10px;
-  position: absolute;
-  bottom: 0px;
-  background-color: rgba(9, 132, 227,1.0);
-  border-radius: 5px;
-  transition: all 1s;
-}
-
-.borders:hover:before {
-  width: 96%;
 }
 
  /* 인트로 열기  닫기 */
@@ -343,6 +361,8 @@
 .effect4.show { opacity: 1; transform: translateX(0px); }
 .effect5.show { opacity: 1; transform: rotateY(0deg); }
 .effect6.show { opacity: 1; transform: rotateX(0deg); }
+
+
 
 /* footer 영역 */
 .footer { text-align: center; cursor: default; padding: 15px; color: #e6e6e6; }
@@ -460,7 +480,15 @@
     background-position: 0px 43%;
   }
 
-  
+  /* 2021 01 31 */
+  .site .intro > h4 {
+    padding-bottom: 5%;
+    font-size: 1.3rem;
+  }
+  .site .intro > p {
+    width: 90%;
+  }
+
 }
 
 /*  480px */
@@ -484,13 +512,33 @@
 
   /* About */
   .About_me p { text-align: left; float: right; margin-top: 50px; font-size: 0.9rem; padding: 1rem; box-shadow: 0px 0px 20px 0px rgba(162, 155, 254,1.0); background-color: rgba(116, 185, 255,0.5); box-sizing: border-box; }
-  .About_me p:before { top: -40px; right: -20px; width: 120px; background-size: 120px; }
+  .About_me p:before { top: -50px; right: -15px; width: 120px; background-size: 120px; }
   
   /* skill */
   /* .skill .tab_menu ul li { width: 30%; }
   .skill .tab_menu ul li a { font-size: 0.9rem; } */
   .skill_tab ul .tab_list a {
     text-indent: -5px;
+  }
+
+  /* 2021 01 31 */
+  .site .intro > h4 {
+    padding-bottom: 2%;
+    font-size: 1.1rem;
+  }
+  .site .intro > p {
+    width: 95%;
+    font-size: 0.8rem;
+  }
+
+  .site.effect4 .intro div {
+    position: absolute;
+    bottom: -10px;
+    transform: translateX(-50%);
+  }
+
+  .site.effect6 .intro > h4 {
+    padding-bottom: 20%;
   }
 
 }
