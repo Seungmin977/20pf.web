@@ -134,38 +134,38 @@
     padding: 30px 0;
 }
 
-.content_nav .nav ul {
+.content_nav .nav > div {
     float: left;
 }
 
-.content_nav .nav ul:nth-child(1) {
+.content_nav .nav > div:nth-child(1) {
     width: 40%;
 }
 
-.content_nav .nav ul:nth-child(2) {
+.content_nav .nav > div:nth-child(2) {
     width: 40%;
 }
 
-.content_nav .nav ul:nth-child(3) {
+.content_nav .nav > div:nth-child(3) {
     width: 20%;
 }
 
-.content_nav .nav ul h3 {
+.content_nav .nav > div > h3 {
     font-size: 18px;
     color: #25a2d0;
     margin-bottom: 4px;
 }
 
-.content_nav .nav ul li {
+.content_nav .nav > div > ul li {
     float: left;
     width: 50%;
 }
 
-.content_nav .nav ul li > a:hover {
+.content_nav .nav > div > ul li > a:hover {
     text-decoration: underline;
 }
 
-.content_nav .nav ul:nth-child(3) li {
+.content_nav .nav > div:nth-child(3) ul li {
     width: 100%;
 }
 
@@ -285,6 +285,9 @@
     padding-left:70px;
     font-size: 12px;
 }
+.content_cont .column > .notice > div {
+    position: relative;
+}
 
 .content_cont .column > .notice h4 {
     font-size: 14px;
@@ -292,7 +295,7 @@
     font-weight: bold;
 }
 
-.content_cont .column > .notice ul > a {
+.content_cont .column > .notice div > a {
     position: absolute;
     top: 2px;
     right: 0;
@@ -320,16 +323,15 @@
 }
 
 .content_cont .col1 > .notice ul {
-    position: relative;
     margin-bottom: 18px;
 }
 
-.content_cont .col1 > .notice ul:nth-child(1) li { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.content_cont .col1 > .notice ul li a span { position: relative; padding-left: 8px; font-size: 12px; }
-.content_cont .col1 > .notice ul:nth-child(2) li {
+.content_cont .col1 > .notice > div:nth-child(1) > ul li { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.content_cont .col1 > .notice > div ul li a span { position: relative; padding-left: 8px; font-size: 12px; }
+.content_cont .col1 > .notice > div:nth-child(2) >ul li {
     overflow: hidden;
 }
-.content_cont .col1 > .notice ul:nth-child(2) li a span {
+.content_cont .col1 > .notice > div:nth-child(2) > ul li a span {
     float: left;
     width: 65%;
     overflow: hidden;

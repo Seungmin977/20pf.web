@@ -52,7 +52,8 @@ let nav = document.querySelector(".content_nav");
 let subNav = document.querySelector(".content_nav .nav ul li a");
 let navButton = document.querySelector(".content_title a");
 
-navBtn.addEventListener("click", function () {
+navBtn.addEventListener("click", function (e) {
+    e.preventDefault();
     nav.classList.toggle("on");
     navButton.classList.toggle("on");
 });
