@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인폼</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #47473d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.8);
+            width: 300px;
+            height: 400px;
+        }
+
+        form h2 {
+            margin-top: 20px;
+            color: #fff;
+            font-size: 2.5rem;
+        }
+
+
+        form label {
+            overflow: hidden;
+            position: absolute;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            text-indent: -9999px;
+        }
+
+        form input {
+            border: none;
+            background: none;
+            text-align: center;
+            outline: none;
+            margin: 20px;
+            padding: 10px;
+            width: 60%;
+            height: 30px;
+            border-radius: 40px;
+            transition: 0.2s ease-in;
+        }
+
+        form input[type="text"],
+        form input[type="password"] {
+            border: 2px solid #ffc400;
+        }
+
+        form input[type="text"]:focus,
+        form input[type="password"]:focus {
+            width: 80%;
+            border: 2px solid #ec3b3b;
+        }
+
+        form input[type="submit"] {
+            border: 2px solid #ec3b3b;
+            width: 50%;
+            height: 50px;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #ec3b3b;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <h2>Login</h2>
+        <label for="text_1">E-mail</label>
+        <input type="text" id="text_1" placeholder="E-mail">
+        <label for="text_2">Password</label>
+        <input type="password" id="text_2" placeholder="password">
+        <input type="submit" value="Login">
+    </form>
+
+</body>
+
+</html>

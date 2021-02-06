@@ -92,21 +92,36 @@ function init() {
         }
     });
 
-
-    //탭 메뉴 2021 - 01 - 29 
-    tabList.forEach(function (list) {
+    //탭 메뉴 2021 - 02 - 06
+    Array.prototype.forEach.call(tabList, function (list) {
         list.childNodes[0].addEventListener("click", function (e) {
             e.preventDefault();
 
             let conts = document.querySelectorAll(".tab_list .tab_cont");
             let nums = this.parentElement.getAttribute("data-nums");
 
-            conts.forEach(function (cont) {
+            Array.prototype.forEach.call(conts, function (cont) {
                 cont.className = "tab_cont";
             });
             conts[nums].className = "tab_cont active";
         });
     });
+
+
+    //탭 메뉴 2021 - 01 - 29 
+    // tabList.forEach(function (list) {
+    //     list.childNodes[0].addEventListener("click", function (e) {
+    //         e.preventDefault();
+
+    //         let conts = document.querySelectorAll(".tab_list .tab_cont");
+    //         let nums = this.parentElement.getAttribute("data-nums");
+
+    //         conts.forEach(function (cont) {
+    //             cont.className = "tab_cont";
+    //         });
+    //         conts[nums].className = "tab_cont active";
+    //     });
+    // });
 
     // 탭 메뉴
     // Array.prototype.forEach.call(tabList, function (list) {

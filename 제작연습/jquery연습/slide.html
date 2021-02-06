@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>웹 디자인 기능사 - 탭메뉴</title>
+
+    <style>
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        table {
+            border-spacing: 0;
+        }
+
+        .clearfix::before,
+        .clearfix::after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+
+        #wrap {
+            width: 1200px;
+            margin: 0px auto;
+        }
+
+        /* header */
+        #header {
+            text-align: center;
+        }
+
+        #header .logo {
+            float: left;
+            width: 250px;
+            height: 100px;
+            line-height: 100px;
+            background: #d1c4e9;
+        }
+
+        #header .nav {
+            float: right;
+            width: 950px;
+            height: 100px;
+            line-height: 100px;
+            background: #b39ddb;
+        }
+
+        /* banner */
+        #banner {
+            width: 1200px;
+            text-align: center;
+            height: 360px;
+            overflow: hidden;
+        }
+
+        /* slider */
+        /* 고정을 시켜놓음 */
+        .slideList {
+            position: relative;
+            width: 1200px;
+            height: 360px;
+        }
+
+        .slideList .slideImg {
+            position: relative;
+        }
+
+        .slideList .slideImg h2 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.5);
+            padding: 10px 30px;
+            border-radius: 25px;
+        }
+
+        .slideList .slideImg img {
+            display: block;
+        }
+
+
+
+        /* contents */
+        #contents {
+            text-align: center;
+        }
+
+        #contents>div {
+            float: left;
+            width: 33.333333%;
+            height: 247px;
+            line-height: 247px;
+        }
+
+        #contents>div.cont1 {
+            background: #7e57c2;
+        }
+
+        #contents>div.cont2 {
+            background: #673ab7;
+        }
+
+        #contents>div.cont3 {
+            background: #5e35b1;
+        }
+
+        /* footer */
+        #footer {
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+        }
+
+        #footer .foot1 {
+            float: left;
+            width: 200px;
+            background: #5e35b1;
+        }
+
+        #footer .foot2 {
+            float: left;
+            width: 800px;
+            background: #512da8;
+        }
+
+        #footer .foot3 {
+            float: left;
+            width: 200px;
+            background: #4527a0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrap">
+        <header id="header" class="clearfix">
+            <h1 class="logo">로고</h1>
+            <nav class="nav">메뉴</nav>
+        </header>
+        <!-- //header -->
+
+        <section id="banner">
+            <div class="slideList">
+                <div class="slideImg">
+                    <h2>이미지1</h2>
+                    <img src="img/ban01.jpg" alt="이미지1">
+                </div>
+                <div class="slideImg">
+                    <h2>이미지2</h2>
+                    <img src="img/ban02.jpg" alt="이미지2">
+                </div>
+                <div class="slideImg">
+                    <h2>이미지3</h2>
+                    <img src="img/ban03.jpg" alt="이미지3">
+                </div>
+            </div>
+        </section>
+        <!-- //banner -->
+
+        <section id="contents" class="clearfix">
+            <div class="cont1">
+                <h3>공지사항</h3>
+            </div>
+            <div class="cont2">
+                <h3>갤러리</h3>
+            </div>
+            <div class="cont3">
+                <h3 class="layerPopup">팝업</h3>
+            </div>
+        </section>
+        <!-- //contents -->
+
+        <footer id="footer">
+            <div class="foot1">
+                <h3>로고</h3>
+            </div>
+            <div class="foot2">
+                <h3>Copyright</h3>
+            </div>
+            <div class="foot3">
+                <h3>SNS</h3>
+            </div>
+        </footer>
+        <!-- //footer -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+
+        var currentIndex = 0;
+        // 현재 이미지를 0이라고 저장
+
+        setInterval(function () {
+
+            //2보다 작으면 실행 하나씩 증가 
+            if (currentIndex < 2) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+
+            var slidePosition = currentIndex * (-360) + "px";
+            // 이미지 한장에 height가 360px 이므로 
+            $(".slideList").animate({ top: slidePosition }, 400);
+            // 움직일때 animate 위로 움직여야하므로 top 값은 slidePosition, 4초동안 
+
+        }, 3000);
+        // 3초 마다 작도하도록 만드는 함수를 만듬 setInterval 이라는 함수
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #container {}
+
+        .slide_wrap {
+            width: 400px;
+            margin: auto;
+            padding-bottom: 30px;
+        }
+
+        .slide_box {
+            width: 100%;
+            margin: auto;
+            overflow-x: hidden;
+        }
+
+        .slide_list {}
+
+        .slide_content {
+            float: left;
+            width: 400px;
+            height: 400px;
+        }
+
+        .slide01 {
+            background-color: brown;
+        }
+
+        .slide02 {
+            background-color: burlywood;
+        }
+
+        .slide03 {
+            background-color: coral;
+        }
+
+        .slide_btn_box>button {
+            position: absolute;
+            top: 50%;
+            margin-top: -45px;
+            width: 60px;
+            height: 60px;
+            font-size: 16px;
+            color: #999;
+            background: none;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .slide_btn_box>.slide_btn_prev {
+            left: 0px;
+        }
+
+        .slide_btn_box>.slide_btn_next {
+            right: 0px;
+        }
+
+        .slide_pagination {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            transform: translateX(-50%);
+        }
+
+        .slide_pagination .dot {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            overflow: hidden;
+            background: #ddd;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .slide_pagination .dot.dot_active {
+            background: #333;
+        }
+
+        .slide_pagination .dot a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="slide_wrap">
+            <div class="slide_box">
+                <div class="slide_list">
+                    <div class="slide_content slide01">
+                    </div>
+                    <div class="slide_content slide02">
+                    </div>
+                    <div class="slide_content slide03">
+                    </div>
+                </div>
+                <!-- slide list -->
+                <div class="slide_btn_box">
+                    <button type="button" class="slide_btn_prev">Prev</button>
+                    <button type="button" class="slide_btn_next">Next</button>
+                </div>
+                <!-- slide btn box -->
+                <ul class="slide_pagination"></ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        let slideList = document.querySelector(".slide_list");// Slide parent dom
+        let slideContents = document.querySelectorAll('.slide_content'); // each slide dom
+        let slideBtnNext = document.querySelector(".slide_btn_next");// next button
+        let slideBtnPrev = document.querySelector(".slide_btn_prev");// prev button
+        let pagination = document.querySelector(".slide_pagination");
+        let slideLen = slideContents.length;// slide length
+        let slideWidth = 400;// slide width
+        let slideSpeed = 300;// slide speed
+        let startNum = 0; // initial slide index (0 ~ 4)
+
+        slideList.style.width = slideWidth * (slideLen + 2) + "px";
+
+        // Copy first and last slide
+        let firstChild = slideList.firstElementChild; //첫번째 
+        let lastChild = slideList.lastElementChild; //마지막
+        let clonedFirst = firstChild.cloneNode(true);
+        let clonedLast = lastChild.cloneNode(true);
+
+        // Add copied Slides
+        slideList.appendChild(clonedFirst);
+        slideList.insertBefore(clonedLast, slideList.firstElementChild);
+
+        slideList.style.transform = "translate3d(-" + (slideWidth * (startNum + 1)) + "px, 0px, 0px)";
+        //- 400 값으로 초기값 설정  -400 -800 -1200 순으로 움직임
+
+        let curIndex = startNum; //처음  슬라이드 인덱스
+        let curSlide = slideContents[curIndex]; //current slide dom
+        curSlide.classList.add("slide_active");// curSlide 에 active를 추가 
+
+
+        // Add pagination dynamically
+        let pageChild = '';
+        for (let i = 0; i < slideLen; i++) {
+            pageChild += '<li class="dot';
+            pageChild += (i === startNum) ? ' dot_active' : '';
+            pageChild += '" data-index="' + i + '"><a href="#"></a></li>';
+        }
+
+        pagination.innerHTML = pageChild;
+
+        let pageDots = document.querySelectorAll(".dot");// each dot from pagination
+
+
+        /** Next Button Event */
+        slideBtnNext.addEventListener("click", function () {
+            if (curIndex <= slideLen - 1) { // 0 < = 3 -1  = 2 ( 0 1  2   총 3 개)
+                slideList.style.transition = slideSpeed + "ms";
+                slideList.style.transform = "translateX(-" + (slideWidth * (curIndex + 2)) + "px)";
+            }
+            if (curIndex === slideLen - 1) {
+                setTimeout(function () {
+                    slideList.style.transition = "0ms";
+                    slideList.style.transfrom = "translate3d(-" + slideWidth + "px, 0px, 0px)";
+                }, slideSpeed);
+                curIndex = -1;
+            }
+            curSlide.classList.remove("slide_active");
+            pageDots[(curIndex === -1) ? slideLen - 1 : curIndex].classList.remove('dot_active');
+            curSlide = slideContents[++curIndex];
+            curSlide.classList.add("slide_active");
+            pageDots[curIndex].classList.add("dot_active");
+        });
+
+        /** Prev Button Event */
+        slideBtnPrev.addEventListener("click", function () {
+            if (curIndex > 0) { // 0 < = 3 -1  = 2 ( 0 1  2   총 3 개)
+                slideList.style.transition = slideSpeed + "ms";
+                slideList.style.transform = "translateX(-" + (slideWidth * curIndex) + "px)";
+            } if (curIndex === 0) {
+                setTimeout(function () {
+                    slideList.style.transition = "0ms";
+                    slideList.style.transform = "translate3d(-" + (slideWidth * slideLen) + "px, 0px, 0px)";
+                }, slideSpeed);
+                curIndex = slideLen;
+            }
+            curSlide.classList.remove("slide_active");
+            pageDots[(curIndex === slideLen) ? 0 : curIndex].classList.remove('dot_active');
+            curSlide = slideContents[--curIndex];
+            curSlide.classList.add("slide_active");
+            pageDots[curIndex].classList.add("dot_active");
+        });
+
+        /** Pagination Button Event */
+        let curDot;
+        Array.prototype.forEach.call(pageDots, function (dot, i) {
+            dot.addEventListener("click", function (e) {
+                e.preventDefault();
+                curDot = document.querySelector(".dot_active");
+                curDot.classList.remove("dot_active");
+
+                curDot.this;
+                this.classList.add("dot_active");
+
+                curSlide.classList.remove("slide_active");
+                curIndex = Number(this.getAttribute("data-index"));
+                curSlide = slideContents[curIndex];
+                curSlide.classList.add('slide_active');
+                slideList.style.transition = slideSpeed + "ms";
+                slideList.style.transform = "translate3d(-" + (slideWidth * (curIndex + 1)) + "px, 0px, 0px)";
+            });
+        });
+    </script>
+</body>
+
+</html>

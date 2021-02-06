@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 애니메이션 페이지</title>
+    <link rel="stylesheet" href="css/default.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .login {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 503px;
+        }
+
+        .login h1 {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 42px;
+            color: #6D6FC7;
+            line-height: 1;
+            letter-spacing: -2.5px;
+            font-weight: 600;
+            margin-bottom: 91px;
+        }
+
+        .login h1 span {
+            display: block;
+            font-size: 32px;
+            color: #F07BAF;
+            font-weight: 100;
+            letter-spacing: -1px;
+        }
+
+        .login ul {
+            margin-bottom: 52px;
+        }
+
+        .login ul li {}
+
+        .login ul li~li {
+            padding: 53px 0 0;
+        }
+
+        .login ul li label {
+            font-size: 22px;
+            color: #707070;
+            padding-left: 50px;
+        }
+
+        /* .login ul li label[for="text1_1"] {
+            background: url(images/person_outline-24px.png) no-repeat 15px center;
+        }
+
+        .login ul li label[for="text1_2"] {
+            background: url(images/lock_open-24px.png) no-repeat 15px center;
+        } */
+
+        .login ul li .email {
+            background: url(images/person_outline-24px.png) no-repeat 15px center;
+        }
+
+        .login ul li .password {
+            background: url(images/lock_open-24px.png) no-repeat 15px center;
+        }
+
+        .login ul li input {
+            height: 0;
+            border-top: 2px solid #707070;
+            margin-top: 19px;
+        }
+
+        .login ul li input:focus {
+            height: 40px;
+        }
+
+        .login button {
+            position: relative;
+            width: 100%;
+            font-size: 22px;
+            color: #fff;
+            height: 79px;
+            background-color: #6D6FC7;
+            border-radius: 11px;
+        }
+
+        .login button:before {
+            content: '';
+            left: 0;
+            top: 0;
+            position: absolute;
+            width: 176px;
+            height: 70px;
+            background: #6D6FC7 0% 0% no-repeat padding-box;
+            opacity: 0.68;
+            filter: blur(34px);
+        }
+
+        .login button:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 246px;
+            height: 98px;
+            background: #FFACE0 0% 0% no-repeat padding-box;
+            opacity: 0.68;
+            filter: blur(34px);
+            z-index: -1;
+        }
+
+        .login button:hover:before {
+            animation: blur 1.5s linear infinite;
+        }
+
+        .login button:hover:after {
+            animation: blur2 1.5s 0.5s linear infinite;
+        }
+
+        @keyframes blur {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(20px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes blur2 {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login">
+        <h1>
+            <span>WebPublisher</span>
+            Rebehayan
+        </h1>
+        <ul>
+            <li>
+                <label for="text1_1" class="email">Email</label>
+                <input type="email" id="text1_1">
+            </li>
+            <li>
+                <label for="text1_2" class="password">Password</label>
+                <input type="password" id="text1_2">
+            </li>
+        </ul>
+        <button>Login</button>
+    </div>
+</body>
+</div>
+
+</html>

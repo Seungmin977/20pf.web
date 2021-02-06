@@ -1,0 +1,152 @@
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .clearfix::before, .clearfix::after { display: block; content: ''; clear: both; }
+
+        #wrap {
+            width: 1000px;
+
+            margin: 0 auto;
+
+            font-size: 16px;
+        }
+
+
+        /* header */
+
+        #header {
+            height: 100px;
+        }
+
+        #header h1 {
+            float: left;
+        }
+
+        #header h1 img {
+            width: 130px;
+        }
+
+        #header .nav {
+            float: right;
+            margin-top: 20px;
+        }
+
+        #header .nav ul li {
+            float: left;
+            width: 120px;
+            text-align: center;
+            background-color: #ccc;
+            position: relative;
+        }
+
+        #header .nav>ul>li>a {
+            display: block;
+            padding: 20px 15px;
+        }
+
+        #header .nav ul li a:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        #header .nav ul li ul.submenu {
+            position: absolute;
+            display: none;
+            z-index: 10;
+        }
+
+        #header .nav ul li ul.submenu li {
+            width: 100%;
+        }
+
+        #header .nav ul li ul.submenu li:hover {
+            background: #555;
+        }
+
+        #header .nav ul li ul.submenu li a {
+            display: block;
+            padding: 10px;
+        }
+
+        /* banner */
+        #banner {
+            width: 1000px;
+            height: 378px;
+            overflow: hidden;
+        }
+
+        #banner .slideList {
+            position: relative;
+            width: 1000px;
+            height: 378px;
+        }
+
+        #banner .slideList .slideImg {
+            position: relative;
+        }
+
+        #banner .slideList .slideImg h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            background-color: #222;
+            padding: 10px 30px;
+            border-radius: 25px;
+        }
+
+        #banner .slideList .slideImg img {
+            width: 100%;
+            display: block;
+        }
+
+        /* content1 */
+        #content1 { margin-top: 15px; }
+        #content1 .notice { position: relative; padding: 30px; float: left; width: 49%; height: 220px; margin-right: 2%; border: 1px solid #ccc; box-sizing: border-box; }
+        #content1 .notice ul li { float: left; margin-right: 20px; }
+        #content1 .notice > ul > li > a { display: block; font-size: 24px; color: #999; font-weight: bold; }
+        #content1 .notice ul > li.active > a { color: #666; }
+        #content1 .notice ul li ul { position: absolute; left: 30px; top: 70px; }
+        #content1 .notice ul li ul li { width: 95%; padding: 5px 0; }
+        #content1 .notice ul li ul li a { float: left; width: 60%; overflow: hidden; white-space: nowrap ; text-overflow: ellipsis; }
+        #content1 .notice ul li ul li span { float: right; width: 20%; }
+        .notice > a { position: absolute; top: 35px; right: 35px; }
+
+        #content1 .ad { float: left; width: 49%; margin-right: 0; }
+        #content1 .ad a {}
+        #content1 .ad img { width: 100%; display: block; height: 220px; }
+
+        #content2 { margin-top: 25px; }
+        #content2 h2 { margin-bottom: 10px; font-size: 16px; }
+        #content2 ul {}
+        #content2 ul li { float: left; width: 24.25%; margin-right: 1%; }
+        #content2 ul li:last-child { margin-right: 0; }
+        #content2 ul li img { width: 100%; }
+        #content2 ul li span { display: block; padding: 10px 0;}
+
+
+        /* footer */
+        #footer { margin-top: 30px; border-top: 1px solid #ccc; padding: 30px 0; }
+        #footer address { font-style: normal; }
+        #footer address ul { width: 670px; }
+        #footer address ul li { display: inline; padding: 0 10px 0 15px; line-height: 1.7; }
+        #footer address ul li.left { padding-left: 0; }
+        #footer address p { padding-top: 30px; }
+        #footer {}
+
+        /* layer */
+        .layer_bg { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background:rgba(0, 0, 0, 0.8); }
+        .layer_bg .layer { position: absolute; top: 50%; left: 50%; width: 500px; height: 500px; transform: translate(-50%,-50%); background-color: #cccccc; }
+        .layer_bg .layer h2 { padding: 20px; font-size: 30px; }
+        .layer_bg .layer a { position: absolute; bottom: 20px; right: 20px; font-size: 20px; }

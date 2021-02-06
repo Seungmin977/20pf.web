@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>산업대학교</title>
+
+    <link rel="stylesheet" href="css/tabmenucss.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header" class="clearfix">
+            <h1 class="logo">로고</h1>
+            <div class="nav">메뉴</div>
+        </header>
+        <!-- //header -->
+        <section id="banner">
+            <h2>이미지 슬라이드</h2>
+        </section>
+        <!-- //banner -->
+        <section id="contents" class="clearfix">
+            <div class="cont1">
+                <div class="tab_menu">
+                    <div class="tab_btn">
+                        <ul class="clearfix">
+                            <li class="active"><a href="#">공지사항1</a></li>
+                            <li><a href="#">공지사항2</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab_cont">
+                        <div>
+                            <span>1.Tab Menu DESC</span>
+                            <span>1.Tab Menu DESC</span>
+                            <span>1.Tab Menu DESC</span>
+                        </div>
+                        <div>
+                            <span>2.Tab Menu DESC</span>
+                            <span>2.Tab Menu DESC</span>
+                            <span>2.Tab Menu DESC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cont2">
+                <h3>갤러리</h3>
+            </div>
+            <div class="cont3">
+                <h3>팝업</h3>
+            </div>
+        </section>
+        <!-- //contents -->
+        <footer id="footer" class="clearfix">
+            <div class="foot1">
+                <h3>로고</h3>
+            </div>
+            <div class="foot2">
+                <h3>Copyright</h3>
+            </div>
+            <div class="foot3">
+                <h3>SNS</h3>
+            </div>
+        </footer>
+        <!-- //footer -->
+    </div>
+    <!-- //wrap -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        let tabBtn = $(".tab_btn > ul > li");
+        let tabCont = $(".tab_cont > div");
+
+        tabCont.hide().eq(0).show();
+
+        tabBtn.click(function (e) {
+            e.preventDefault();
+
+            let target = $(this);
+            let index = target.index();
+            tabBtn.removeClass("active");
+            target.addClass("active");
+            tabCont.css("display", "none");
+            tabCont.eq(index).css("display", "block");
+
+        });
+
+    </script>
+</body>
+
+</html>

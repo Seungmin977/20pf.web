@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+<title>Something</title>
+<link rel="stylesheet" href="index.css" />
+<style>
+    .clicked {
+        color: #7f8c8d;
+    }
+
+    .form,
+    .greetings {
+        display: none;
+    }
+
+    .showing {
+        display: block;
+    }
+</style>
+
+<body>
+    <div class="clock_js">
+        <h1 class="clock_title"></h1>
+    </div>
+    <h1 id="title">title</h1>
+
+    <form action="" class="js-form form">
+        <input type="text" placeholder="what you are name?" />
+    </form>
+
+    <h4 class="js-greetings greetings"></h4>
+
+    <form action="" class="js-toDoForm">
+        <input type="text" placeholder="Write a to do" />
+    </form>
+    <ul class="js-toDoList">
+    </ul>
+
+
+    <script src="clock.js"></script>
+    <script src="gretting.js"></script>
+    <script src="todo.js"></script>
+
+    <script>
+        const title = document.querySelector("#title");
+        const BASE_COLOR = "rgb(52, 73, 94)";
+        const OTHER_COLOR = "#7f8c8d";
+
+        const CLICKED_CLASS = "clicked";
+
+        function handleClick() {
+            title.classList.toggle(CLICKED_CLASS);
+            // const hasClass = title.classList.contains(CLICKED_CLASS);
+            // //contains 참 거짓 판별
+            // if (!hasClass) {
+            //     title.classList.add("clicked")
+            // } else {
+            //     title.classList.remove("clicked")
+            // }
+        }
+
+        function init() {
+            title.addEventListener("click", handleClick);
+        }
+
+        init();
+
+    </script>
+</body>
+
+</html>

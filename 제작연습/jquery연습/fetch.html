@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .main2 {
+            border: 1px solid red;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <article>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit suscipit placeat impedit doloribus
+            hic laudantium ea laborum! Hic amet impedit, veniam assumenda eaque obcaecati officiis at quam voluptates
+            enim accusantium, perferendis, libero ea totam labore suscipit provident eius molestiae laborum eos
+            recusandae sequi aliquam. Dolor nostrum incidunt nam iure provident neque nihil quisquam, quibusdam deserunt
+            veritatis delectus obcaecati sequi in odit fuga rerum nesciunt quo dignissimos eos, animi rem suscipit. Nisi
+            odio veniam impedit soluta accusantium illo excepturi earum dolorem iste, tenetur atque eligendi pariatur,
+            necessitatibus iure quis error minima itaque repellendus amet exercitationem cupiditate. Iusto assumenda
+            veniam quos quisquam.
+        </p>
+    </article>
+
+    <!-- <input type="button" value="fetch" onclick="fetch('slide.html').then(function(response){
+        response.text().then(function(text){
+            document.querySelector('article').innerHTML = text;
+        })
+    })"> -->
+
+    <!-- <input type="button" value="button" onclick="fetch('csshtml').then(function(pos){
+        pos.text().then(function(texts){
+            document.querySelector('article').innerHTML = texts;
+        })
+    })"> -->
+    <input type="button" value="button1" onclick="fetchPage('csshtml')">
+    <input type="button" value="button2" onclick="fetchPage('tab.html')">
+    <input type="button" value="button3" onclick="fetchPage('slide.html')">
+
+    <a href="#!html" onclick="fetchPage('csshtml')"> html </a>
+    <a href="#!html" onclick="fetchPage('tab.html')"> css </a>
+    <a href="#!html" onclick="fetchPage('slide.html')"> javascript </a>
+
+
+
+    <article class="main2">
+        <div>
+            gdgdgdgd
+        </div>
+    </article>
+
+    <script>
+
+        function fetchPage(name) {
+            fetch(name).then(function (pos) {
+                pos.text().then(function (texts) {
+                    document.querySelector('article').innerHTML = texts;
+                })
+            });
+        }
+
+        if (location.hash) {
+            fetchPage(location.hash.substr(2));
+        } else {
+            fetchPage('welcome');
+        }
+
+    </script>
+</body>
+
+</html>

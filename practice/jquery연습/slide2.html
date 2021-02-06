@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #banner {
+            width: 1200px;
+            margin: 0 auto;
+            height: 360px;
+            position: relative;
+
+        }
+
+        h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            z-index: 10;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3600px;
+            height: 360px;
+        }
+
+        .slide .slide_image {
+            float: left;
+            width: 1200px;
+            height: 360px;
+        }
+
+        .slide .slide_image img {
+            display: block;
+        }
+
+        /*
+        .slide .int {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+        }
+        */
+    </style>
+</head>
+
+
+<body>
+    <div id="banner">
+        <h2>좌우로 이동하는 슬라이드</h2>
+        <div class="slide">
+            <div class="slide_image"><img src="img/ban01.jpg" alt="이미지1">
+            </div>
+            <div class="slide_image"><img src="img/ban02.jpg" alt="이미지2">
+            </div>
+            <div class="slide_image"><img src="img/ban03.jpg" alt="이미지3">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script>
+
+        var count = $(".slide_image").length;
+        var number = 0;
+        var next;
+
+        setInterval(function () {
+
+            if (number < count - 1) {
+                number++;
+            } else {
+                number = 0;
+            }
+
+            next = number * (-1200) + "px";
+            $(".slide").animate({ left: next }, 400);
+        }, 3000);
+    </script>
+</body>
+
+</html>

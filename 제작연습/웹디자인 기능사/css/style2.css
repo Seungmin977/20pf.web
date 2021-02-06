@@ -1,0 +1,32 @@
+/* reset */
+* { margin: 0; padding: 0; }
+.clearfix::before, .clearfix::after { content: ''; display: block; clear: both; }
+
+ul, li { list-style: none; }
+
+a { text-decoration: none; }
+
+/* 레이아웃 */
+#wrap { width: 1200px; margin: 0 auto; }
+#side { float: left; width: 300px; height: 850px; background-color: #ccc; }
+#content { float: left; height: 850px; width: 900px; background-color: #ddd; }
+
+/* side header */
+#side h1 { width: 300px; height: 150px; background-color: #999; }
+#side .nav { width: 300px; height: 700px; background-color: #888; }
+#side .nav ul li { position: relative; text-align: center; background-color: #b39ddb; }
+#side .nav ul li a { padding: 10px; display: block; color: #fff; background-color: rgba(0, 0, 0, 0.3);}
+#side .nav ul li a:hover {background-color: rgba(0, 0, 0, 0.4);}
+#side .nav ul li ul.submenu { display: none; position: absolute; top: 0; right: -200px; background-color: #9575cd; width: 200px; }
+
+/* content */
+#banner { width: 900px; height: 450px; background-color: #777; }
+#content #contents > div { float: left; width: 300px; height: 300px; }
+#contents > .cont1 { background-color: #666; }
+#contents > .cont2 { background-color: #777; }
+#contents > .cont3 { background-color: #888; }
+
+#content #footer {}
+#content #footer > h3 { float: left; width: 200px; height: 100px; background-color: #555;}
+#content #footer .fot1 { float: left;  width: 700px; height: 50px; background-color: #666; }
+#content #footer .fot2 { float: left; width: 700px; height: 50px; background-color: #777;}
