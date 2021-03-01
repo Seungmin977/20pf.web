@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 팝업</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        em {
+            font-style: normal;
+        }
+
+        .popup_open {}
+
+        /* 팝업 */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 820px;
+            height: 833px;
+            padding: 52px 60px 60px;
+            box-sizing: border-box;
+            background-color: #fff;
+            z-index: 1;
+        }
+
+        .popup.on {
+            display: block;
+        }
+
+        .popup .title {
+            font-size: 36px;
+            text-align: center;
+            border-bottom: 3px solid #222;
+            line-height: 1;
+            font-weight: normal;
+            padding-bottom: 42px;
+        }
+
+        .popup .info {
+            padding: 40px 78px;
+            border-bottom: 1px solid #444;
+        }
+
+        /* 전체 */
+        .popup .info .info_name,
+        .popup .info .info_tel,
+        .popup .info .info_text,
+        .popup .info .info_check {
+            overflow: hidden;
+            padding-bottom: 20px;
+        }
+
+        .popup .info .info_check {
+            padding-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* 폰트사이즈 */
+        .popup .info .info_name label,
+        .popup .info .info_tel label,
+        .popup .info .info_text label,
+        .popup .info .info_check label {
+            font-size: 13px;
+        }
+
+        /* 중앙정렬 */
+        .popup .info .info_name label,
+        .popup .info .info_tel label {
+            display: inline-block;
+            padding-top: 15px;
+            vertical-align: top;
+        }
+
+        .popup .info .info_text label {
+            display: inline-block;
+            padding-top: 15px;
+            vertical-align: top;
+        }
+
+        .popup .info .info_name input,
+        .popup .info .info_text textarea,
+        .popup .info .info_tel input {
+            float: right;
+        }
+
+        .popup .info .info_name label em,
+        .popup .info .info_tel label em {
+            color: red;
+        }
+
+        .popup .info .info_name input,
+        .popup .info .info_text textarea,
+        .popup .info .info_tel input {
+            width: calc(100% - 120px);
+            height: 35px;
+            line-height: 35px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        .popup .info .info_text textarea {
+            height: 116px;
+            box-sizing: border-box;
+            line-height: 1.2;
+            padding-left: 14px;
+        }
+
+        /* 체크 */
+
+        .popup .info .info_check {
+            line-height: 1;
+        }
+
+        .popup .info .info_check ul {
+            width: calc(100% - 120px);
+        }
+
+        .popup .info .info_check ul li input {
+            width: 14px;
+            height: 14px;
+        }
+
+        .popup .info .info_check input {
+            vertical-align: middle;
+        }
+
+        .popup .info .info_check>label {
+            float: left;
+        }
+
+        .popup .info .info_check .check_list {
+            float: right;
+        }
+
+
+        /* agree */
+        .agree {
+            position: relative;
+            padding: 0 30px;
+            margin-top: 28px;
+            height: 60px;
+            line-height: 60px;
+            border: 1px solid #ddd;
+        }
+
+        .agree label {
+            font-size: 14px;
+        }
+
+        .agree label strong {
+            color: red;
+        }
+
+        .agree>a {
+            position: absolute;
+            top: 15px;
+            right: 30px;
+            text-decoration: none;
+            width: 93px;
+            height: 30px;
+            color: #222;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 3px;
+        }
+
+
+        /* 공통 디자인 체크박스 */
+        input[type="checkbox"] {
+            position: absolute;
+            left: -3000%;
+        }
+
+        input[type="checkbox"]+label {
+            font-size: 14px;
+            /* color: #666; */
+        }
+
+        input[type="checkbox"]+label:before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ddd;
+            margin-right: 10px;
+            background-color: #f4f4f4;
+            vertical-align: middle;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"]:checked+label:before {
+            border: 7px solid #666;
+        }
+
+
+        /* 닫기 */
+        .popup .popup_close {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 40px;
+            height: 40px;
+        }
+
+        /* 상담신청 */
+        .center {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .submit {
+            display: inline-block;
+            width: 170px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            color: #fff;
+            background-color: #de4f41;
+            border: 0;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        /* 오버레이 */
+        .overay {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .popup.on+.overay {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="popup_open">open</button>
+    <div class="popup">
+        <h2 class="title">간편 상담 신청</h2>
+        <div class="info">
+            <div class="info_name">
+                <label for="name">신청자 이름<em>*</em></label>
+                <input type="text" id="name" placeholder="이름을 입력해주세요.">
+            </div>
+            <div class="info_tel">
+                <label for="phon">연락처<em>*</em></label>
+                <input type="tel" id="phon" placeholder="숫자만 입력해주세요.">
+            </div>
+            <div class="info_text">
+                <label for="text2">메모<em>(0/300 byte)</em></label>
+                <textarea id="text2"
+                    placeholder="궁금하신 점이나 궁금하신 점이나 궁금하신 점이나 궁금하신 점이나 궁금하신 점이나 궁금하신 점이나 궁금하신 점이나"></textarea>
+            </div>
+            <div class="info_check">
+                <label>적용 가능한<br>혜택이 있나요?</label>
+                <ul class="check_list">
+                    <li><input type="checkbox" id="chek1"><label for="chek1">T멤버십 회원이에요.</label></li>
+                    <li><input type="checkbox" id="chek2"><label for="chek2">지금 브로드밴드 인터넷을 쓰고 있어요.</label></li>
+                    <li><input type="checkbox" id="chek3"><label for="chek3">브로드밴드 인터넷을 신규 가입하여 결합하고 싶어요.</label></li>
+                </ul>
+            </div>
+            <div class="agree">
+                <input type="checkbox" id="chek4"><label for="chek4"><strong>[필수]</strong>개인정보 수집 및 이용 동의</label>
+                <a href="#">전문보기</a>
+            </div>
+        </div>
+        <div class="center">
+            <button class="submit">상담신청</button>
+        </div>
+        <button class="popup_close">
+            x
+        </button>
+    </div>
+    <div class="overay"></div>
+
+    <script>
+        const popupOpen = document.querySelector(".popup_open");
+        const popupClose = document.querySelector(".popup_close");
+
+        popupOpen.addEventListener("click", function () {
+            document.querySelector(".popup").className = "popup on";
+        });
+
+        popupClose.addEventListener("click", function () {
+            document.querySelector(".popup").className = "popup";
+        });
+
+
+    </script>
+</body>
+
+</html>

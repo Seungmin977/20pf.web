@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 16:9비율 유지</title>
+
+    <style>
+        .video {
+            position: relative;
+            margin: 0 auto;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .video>div {
+            padding-bottom: 56.25%;
+        }
+
+        .video>div iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video">
+        <div>
+            <iframe src="https://www.youtube.com/embed/PCKgkCu-31Q" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+</body>
+
+</html>

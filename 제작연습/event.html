@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 게시판</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #wrap {
+            padding: 100px;
+        }
+
+        .event_list {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .event_list .list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: flex-start;
+        }
+
+        .event_list .list li {
+            flex: 0 1 25%;
+            /* flex: 0 1 273px; */
+            /* flex 증가 너비 비율, 감소 너비 비율, 기본너비 기본값은 : 0 1 기본너비*/
+            padding-bottom: 34px;
+        }
+
+        .event_list .list li a {
+            display: block;
+            position: relative;
+            width: 271px;
+            height: 382px;
+            border: 1px solid #ddd;
+            line-height: 1;
+        }
+
+        .event_list .list li a em {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            border-radius: 100%;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            color: #fff;
+            text-align: center;
+            background: rgba(0, 0, 0, .5);
+            font-style: normal;
+        }
+
+        .event_list .list li a .img {
+            overflow: hidden;
+            position: relative;
+            width: 271px;
+            height: 272px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .event_list .list li a .img img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .event_list .list li a .info {
+            padding: 29px 10px;
+        }
+
+        .event_list .list .info strong {
+            display: block;
+            overflow: hidden;
+            width: 100%;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-size: 17px;
+            color: #222;
+        }
+
+        .event_list .list .info p {
+            padding-top: 20px;
+            font-size: 13px;
+            color: #888;
+            text-align: center;
+        }
+
+        .event_list .list .info p span {
+            font-size: 15px;
+            color: #ed1846;
+        }
+
+        /* 페이징 */
+        .paging {
+            padding: 28px 0 60px;
+        }
+
+        .paging ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        .paging ul li {
+            margin: 0 7px;
+        }
+
+        .paging ul li a {
+            display: block;
+            width: 42px;
+            height: 42px;
+            text-align: center;
+            line-height: 42px;
+        }
+
+        .paging ul li a:hover,
+        .paging ul li a.on {
+            background-color: #ed1846;
+            color: #fff;
+        }
+
+        .paging ul li .first {
+            background: url(images/lock_open-24px.png) no-repeat center;
+            margin: 0 16px 0 0;
+        }
+
+        .paging ul li .prev {
+            background: url(images/lock_open-24px.png) no-repeat center;
+            margin: 0 6px 0 0;
+        }
+
+        .paging ul li .next {
+            background: url(images/lock_open-24px.png) no-repeat center;
+            margin: 0 0 0 6px;
+        }
+
+        .paging ul li .last {
+            background: url(images/lock_open-24px.png) no-repeat center;
+            margin: 0 0 0 16px;
+        }
+
+        .paging ul li a.first:hover,
+        .paging ul li a.prev:hover,
+        .paging ul li a.next:hover,
+        .paging ul li a.last:hover {
+            background-color: #fff;
+        }
+
+        /* 찾기 */
+        .search {
+            padding: 20px 0;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            text-align: center;
+            font-size: 0;
+            /* font-size 0 을 하면 간격 없어짐  */
+        }
+
+        .search form fieldset * {
+            /*서치 자식 전부 */
+            margin: 0 5px;
+            /* 명심 가운데 정렬은 좌우로 주는게 좋음 */
+            height: 53px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+        }
+
+        .search select {
+            width: 148px;
+            padding-left: 30px;
+        }
+
+        .search input {
+            width: 258px;
+        }
+
+        .search button {
+            width: 150px;
+            color: #fff;
+            border: none;
+            background-color: #ed1846;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="event_list">
+            <ul class="list">
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="images/text_image.png" alt="힘펠 공식 블로그 방문자 200만 달성 되었습니다.">
+                        </div>
+                        <em>마감</em>
+                        <div class="info">
+                            <strong>힘펠 공식 블로그 방문자 200만 달성 되었습니다.</strong>
+                            <p>
+                                <span>이벤트 기간</span>
+                                2018.11.07~2018.11.21
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="images/text_image.png" alt="힘펠 공식 블로그 방문자 200만 달성 되었습니다.">
+                        </div>
+                        <em>마감</em>
+                        <div class="info">
+                            <strong>힘펠 공식 블로그 방문자 200만 달성 되었습니다.</strong>
+                            <p>
+                                <span>이벤트 기간</span>
+                                2018.11.07~2018.11.21
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="images/text_image.png" alt="힘펠 공식 블로그 방문자 200만 달성 되었습니다.">
+                        </div>
+                        <em>마감</em>
+                        <div class="info">
+                            <strong>힘펠 공식 블로그 방문자 200만 달성 되었습니다.</strong>
+                            <p>
+                                <span>이벤트 기간</span>
+                                2018.11.07~2018.11.21
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="images/text_image.png" alt="힘펠 공식 블로그 방문자 200만 달성 되었습니다.">
+                        </div>
+                        <em>마감</em>
+                        <div class="info">
+                            <strong>힘펠 공식 블로그 방문자 200만 달성 되었습니다.</strong>
+                            <p>
+                                <span>이벤트 기간</span>
+                                2018.11.07~2018.11.21
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="images/text_image.png" alt="힘펠 공식 블로그 방문자 200만 달성 되었습니다.">
+                        </div>
+                        <em>마감</em>
+                        <div class="info">
+                            <strong>힘펠 공식 블로그 방문자 200만 달성 되었습니다.</strong>
+                            <p>
+                                <span>이벤트 기간</span>
+                                2018.11.07~2018.11.21
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="img">
+                            <img src="images/text_image.png" alt="힘펠 공식 블로그 방문자 200만 달성 되었습니다.">
+                        </div>
+                        <em>마감</em>
+                        <div class="info">
+                            <strong>힘펠 공식 블로그 방문자 200만 달성 되었습니다.</strong>
+                            <p>
+                                <span>이벤트 기간</span>
+                                2018.11.07~2018.11.21
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- //event_list -->
+        <div class="paging">
+            <ul>
+                <li><a href="#" class="first"><span class="ir_su">첫 페이지</span></a></li>
+                <li><a href="#" class="prev"><span class="ir_su">이전 페이지</span></a></li>
+                <li><a href="#" class="on"><span>1</span></a></li>
+                <li><a href="#"><span>2</span></a></li>
+                <li><a href="#" class="next"><span class="ir_su">다음 페이지</span></a></li>
+                <li><a href="#" class="last"><span class="ir_su">마지막 페이지</span></a></li>
+            </ul>
+        </div>
+        <div class="search">
+            <form method="post">
+                <fieldset>
+                    <select>
+                        <option value="제목">제목</option>
+                        <option value="제목">글쓴이</option>
+                    </select>
+                    <input type="search">
+                    <button>검색</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

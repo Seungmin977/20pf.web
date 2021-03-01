@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        ul {
+            display: flex;
+        }
+
+        ul li {
+            flex: 1;
+            height: 100vh;
+            line-height: 100vh;
+            text-align: center;
+            background: no-repeat center / cover;
+            transition: all 0.7s;
+            font-size: 60px;
+            color: blueviolet;
+        }
+
+        ul li:hover {
+            flex: 2;
+        }
+
+        ul li:not(:hover) {
+            flex: 0.8;
+        }
+
+        ul li:nth-child(1) {
+            background-image: url(images/text_image.png);
+        }
+
+        ul li:nth-child(2) {
+            background-image: url(images/text_image.png);
+        }
+
+        ul li:nth-child(3) {
+            background-image: url(images/text_image.png);
+        }
+
+        ul li:nth-child(4) {
+            background-image: url(images/text_image.png);
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>이미지1</li>
+        <li>이미지2</li>
+        <li>이미지3</li>
+        <li>이미지4</li>
+    </ul>
+</body>
+
+</html>

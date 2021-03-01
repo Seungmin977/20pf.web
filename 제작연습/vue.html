@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 맛보기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <h1>Hello {{ userName }}</h1>
+        <input type="text" v-model="userName">
+        <p v-if="userName.length > 9"> user name length is too long!!! </p>
+        <!-- v-if 문으로 if 문 걸기 -->
+
+        <!-- <button v-on:click="addItem">addItem</button>
+        <button @click="popItem">popItem</button> -->
+        <!-- v-on 을 생략하는 @ 이 사용-->
+        <button @click="fetchTodos">fetchTodos</button>
+        <!-- fetchtodos 클릭하면 불러오기 -->
+        <ul>
+            <li v-for="(todo, index) in todos">
+                <!-- 반복문에서 index 추출 방법 (todo, index)  로 하면 가능 -->
+                {{ todo.completed }}
+                <!-- 그냥 todo 로 하면 데이터 가져오니까 todo.title 하면 title 만 가져옴-->
+                <button @click="completedTodo(index)">완료</button>
+            </li>
+        </ul>
+        <h2 :class="{ many: completedTodos > 5 }">
+            <!-- v-bind:class= 어쩌구 로 거는데 생략해서 조건걸기-->
+            완료된 Todo는 총 : {{ completedTodos }} 입니다.
+        </h2>
+    </div>
+
+    <script>
+        // const app = new Vue(); // 뷰 실행 () 안에 넘길 값 설정
+        const app = new Vue({
+            el: "#app", //element 설정 javascript와 같음 이제 그 아래있는 태그들은 관리 가능
+            data: {         //사용하는 변수같은것들을 data 라는 프로퍼티에 담음 
+                userName: "scalper",
+                //주로 input 태그를 쓰는데 그 값을 가져올 수 있음 v-model
+                frameworks: ['react', 'vue', 'angular', "ㅎㅇ"], // 배열을 만들고 ul li 식으로 아이템 갯수만큼 늘리기가능
+                todos: [], // fetch api 를 이용해서 데이터 받기위해 todos 배열 하나 만들기
+            },
+            computed: { //간단한 계산 도와주는 computed 속성
+                completedTodos() {
+                    return this.todos.filter(todo => todo.completed === true).length; //todos 안에 complted 가 true인 것에 갯수를 걸러라
+                },
+            },
+            methods: {
+                addItem() { //addItem 이라는 함수
+                    console.log(this.userName);
+                    this.frameworks.push(this.userName);
+                },
+                popItem() {
+                    this.frameworks.pop();
+                },
+                fetchTodos() {
+                    fetch("https://jsonplaceholder.typicode.com/todos?_start=0&_end=10")
+                        .then(res => res.json()) // 다 불러오면 res json으로 변환
+                        .then(data => this.todos = data) //변환이 다 되면 todos 에 data 값 넣기  console.log(data) 
+                },
+                completedTodo(index) {
+                    this.todos[index].completed = true;
+                },
+            }, //객체 안에 있는 함수 = 메서드
+        });
+
+    </script>
+    <style>
+        .many {
+            color: red;
+        }
+    </style>
+</body>
+
+</html>
